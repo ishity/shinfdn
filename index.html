@@ -11,19 +11,23 @@
         <!-- 姓名を分けて記入 -->
         <label>名前</label>
         <div>
-            <label>姓</label>
-            <input name="姓" type="text" data-formrun-required>
-            <label>名</label>
-            <input name="名" type="text" data-formrun-required>
+            <div>
+                <label>姓</label>
+                <input name="姓" type="text" data-formrun-required>
+                <label>名</label>
+                <input name="名" type="text" data-formrun-required>
+            </div>
+    
+            <label>名前（フリガナ）</label>
+            <div>
+                <label>セイ</label>
+                <input name="セイ" type="text" data-formrun-required>
+                <label>メイ</label>
+                <input name="メイ" type="text" data-formrun-required>
+            </div>
         </div>
 
-        <label>名前（フリガナ）</label>
-        <div>
-            <label>セイ</label>
-            <input name="セイ" type="text" data-formrun-required>
-            <label>メイ</label>
-            <input name="メイ" type="text" data-formrun-required>
-        </div>
+        <br>
     
         <!-- 登録済みメールアドレス -->
         <div>
@@ -32,6 +36,8 @@
             <input name="メールアドレス" type="text" data-formrun-type="email" data-formrun-required>
             <div data-formrun-show-if-error="メールアドレス">メールアドレスを正しく入力してください</div>
         </div>
+
+        <br>
 
         <!-- 現在の学年 -->
         <div>
@@ -45,15 +51,20 @@
             </select>
         </div>
 
+        <br>
+
         <!-- 生年月日 -->
         <div>
             <label>生年月日</label>
             <input type="date" name="date">
         </div>
 
+        <br>
+
         <!-- 住所 -->
         <div class="card-block">
             <label>住所</label>
+            <p>郵便番号（ハイフンなし）を入力すると自動補完されます</p>
             <input type="text" name="郵便番号" data-formrun-type="postal-code-jp">
             <select name="都道府県" data-formrun-type="region prefecture-jp"></select>
             <input type="text" name="市区町村" data-formrun-type="locality street-address" >
@@ -61,15 +72,23 @@
             <input type="text" name="建物名・部屋番号">
         </div>
 
+        <br>
+
         <!-- 本人または保護者の電話番号 -->
         <div>
             <label>本人または保護者の電話番号</label>
             <input type="text" name="電話番号" data-formrun-type="tel">
         </div> 
 
+        <br>
+
         <!-- 所属学校に関する情報を検索して入力して下さい -->
-        <label>所属学校に関する情報を検索して入力して下さい</label>
-        <input type="text" name="学校名" data-formrun-required>
+        <div>
+            <label>所属学校に関する情報を検索して入力して下さい</label>
+            <input type="text" name="学校名" data-formrun-required>
+        </div>
+
+        <br>
 
         <div>
             <label>学校の種類を選択</label>
@@ -79,6 +98,8 @@
                 <option value="technical">高等専門学校（高専）</option>
             </select>
         </div>
+
+        <br>
     
         <div>
             <label>都道府県を選択</label>
@@ -91,21 +112,29 @@
             </select>
         </div>
 
+        <br>
+
         <div>
             <label>高校名検索（頭文字を選んでください）</label>
             <div id="kanaList" style="margin-bottom: 10px; flex-wrap: wrap; display: flex; gap: 5px;"></div>
             <ul id="suggestionList" style="border: 0.5px solid #ccc; max-height: 150px; overflow-y: auto; padding: 0;">学校の種類と都道府県を選択してください。</ul>
         </div>
+
+        <br>
         
         <div>
             <label>学校コード</label>
             <input name="学校コード" id="schoolCode" type="text" readonly>
         </div>
 
+        <br>
+
         <!-- あなたは女性ですか？ -->
         <div>
             <label><input type="checkbox" name="あなたは女性ですか？" value="はい" >はい</label>
         </div>
+
+        <br>
         
         <!-- STEM（理系）分野に興味を持ったきっかけ（100文字程度、上限200文字）文字数 200文字以内　現在の文字数 0 -->
         <div>
@@ -116,6 +145,8 @@
             data-formrun-chars-max="200">
             </textarea>
         </div>
+
+        <br>
 
         <!-- あなたが最も興味のある分野を1つお選びください。 -->
         <div>
@@ -139,6 +170,8 @@
             </select>
         </div>
 
+        <br>
+
         <!-- ハードル -->
         <div>
             <label>高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。</label>
@@ -155,6 +188,8 @@
             <label><input type="checkbox" name="自分が何をやりたいのか将来像がまだ明確になっていないこと" value="11">11.自分が何をやりたいのか将来像がまだ明確になっていないこと</label>
         </div>
 
+        <br>
+
         <!-- ハードル  -->
         <div>
             <label>その他、上記以外でハードルになっていることがあれば自由にお書きください</label>
@@ -163,6 +198,8 @@
             data-formrun-type="text">
             </textarea>
         </div>
+
+        <br>
 
         <!-- 現在、あなた自身の文理選択について、どう考えていますか？ -->
         <div>
@@ -178,9 +215,12 @@
             </select>
         </div>
 
+        <br>
+
         <!-- あなたが当財団を知ったきっかけを教えてください（複数回答可） -->
         <div>
             <label>あなたが当財団を知ったきっかけを教えてください（複数回答可）</label>
+            <br>
             <label><input type="checkbox" name="Instagram" value="Instagram" >Instagram</label>
             <label><input type="checkbox" name="X(旧Twitter)" value="X(旧Twitter)">X(旧Twitter)</label><br>
             <label><input type="checkbox" name="LINE" value="LINE">LINE</label><br>
@@ -204,17 +244,23 @@
             <label><input type="checkbox" name="その他" value="その他">その他</label>
         </div>
 
+        <br>
+
         <!-- 今回のご応募にあたって、保護者の同意を得ていますか。 -->
         <div>
             <label>今回のご応募にあたって、保護者の同意を得ていますか。</label>
             <label><input type="checkbox" name="はい" value="はい">はい</label>
         </div>
 
+        <br>
+
         <!-- 過去に山田進太郎D&I財団の奨学金、奨学助成金の給付は受けていないですか？ -->
         <div>
             <label>過去に山田進太郎D&I財団の奨学金、奨学助成金の給付は受けていないですか？</label>
             <label><input type="checkbox" name="はい" value="はい">はい</label>
         </div>
+
+        <br>
 
         <!-- 山田進太郎D&I財団がお送りする各種無料メルマガ（STEM分野に興味がある女子向けイベント情報等）の購読を希望しますか？ -->
         <div>
@@ -228,12 +274,16 @@
             </select>
         </div>
 
+        <br>
+
         <!-- 個人情報の取扱の規約に同意する -->
         <div>
             <label>個人情報利用同意 [必須]</label>
             <input type="checkbox" name="個人情報利用同意" data-formrun-required>
             <div data-formrun-show-if-error="個人情報利用同意">同意してください</div>
         </div>
+
+        <br>
 
         <div class="_formrun_gotcha">
             <style media="screen">._formrun_gotcha {position:absolute!important;height:1px;width:1px;overflow:hidden;}</style>
