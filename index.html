@@ -2,22 +2,74 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://sdk.form.run/js/v2/formrun.js"></script>
 </head>
 <body>
     <form class="formrun" action="https://form.run/api/v1/r/2wxtvgvijfo5ckudlaa26unj" method="post">
+
+        <!-- 姓名を分けて記入 -->
+        <label>名前</label>
         <div>
-            <label>お名前</label>
-            <input name="お名前" type="text">
+            <label>姓</label>
+            <input name="姓" type="text" data-formrun-required>
+            <label>名</label>
+            <input name="名" type="text" data-formrun-required>
+        </div>
+
+        <label>名前（フリガナ）</label>
+        <div>
+            <label>セイ</label>
+            <input name="セイ" type="text" data-formrun-required>
+            <label>メイ</label>
+            <input name="メイ" type="text" data-formrun-required>
         </div>
     
+        <!-- 登録済みメールアドレス -->
         <div>
-            <label>メールアドレス [必須]</label>
+            <label>登録済みメールアドレス ※変更不可</label>
+            <p>本申し込みフォームのご案内をお送りしましたこちらのメールアドレスに、申し込み後の完了メールおよび、2025年2月中旬頃に選考結果が届きます。申し込み完了メールの受信を必ずご確認ください。1つのメールアドレスにつき1人のみ応募いただけます。姉妹などで応募頂く場合は別々のメールアドレスでのご登録をお願いします。</p>
             <input name="メールアドレス" type="text" data-formrun-type="email" data-formrun-required>
             <div data-formrun-show-if-error="メールアドレス">メールアドレスを正しく入力してください</div>
         </div>
+
+        <!-- 現在の学年 -->
+        <div>
+            <label>現在の学年</label>
+            <select name="現在の学年" data-formrun-required>
+                <option value="0">選択してください</option>
+                <option value="1">高校1年生</option>
+                <option value="2">高校2年生</option>
+                <option value="3">高等専門学校1年生</option>
+                <option value="4">高等専門学校2年生</option>
+            </select>
+        </div>
+
+        <!-- 生年月日 -->
+        <div>
+            <label>生年月日</label>
+            <input type="date" name="date">
+        </div>
+
+        <!-- 住所 -->
+        <div class="card-block">
+            <label>住所</label>
+            <input type="text" name="郵便番号" data-formrun-type="postal-code-jp">
+            <select name="都道府県" data-formrun-type="region prefecture-jp"></select>
+            <input type="text" name="市区町村" data-formrun-type="locality street-address" >
+            <input type="text" name="番地">
+            <input type="text" name="建物名・部屋番号">
+        </div>
+
+        <!-- 本人または保護者の電話番号 -->
+        <div>
+            <label>本人または保護者の電話番号</label>
+            <input type="text" name="電話番号" data-formrun-type="tel">
+        </div> 
+
+        <!-- 所属学校に関する情報を検索して入力して下さい -->
+        <label>所属学校に関する情報を検索して入力して下さい</label>
+        <input type="text" name="学校名" data-formrun-required>
 
         <div>
             <label>学校の種類を選択</label>
@@ -49,13 +101,134 @@
             <label>学校コード</label>
             <input name="学校コード" id="schoolCode" type="text" readonly>
         </div>
-        
+
+        <!-- あなたは女性ですか？ -->
         <div>
-            <label>お問い合わせ [必須]</label>
-            <textarea name="お問い合わせ" data-formrun-required></textarea>
-            <div data-formrun-show-if-error="お問い合わせ">お問い合わせ内容を入力してください</div>
+            <label><input type="checkbox" name="あなたは女性ですか？" value="はい" >はい</label>
         </div>
-    
+        
+        <!-- STEM（理系）分野に興味を持ったきっかけ（100文字程度、上限200文字）文字数 200文字以内　現在の文字数 0 -->
+        <div>
+            <label>STEM（理系）分野に興味を持ったきっかけや、進学して学んでみたいことや将来つきたい仕事のイメージについて、もしあればお聞かせください。まだ進路が決まっていない場合は、現在考えていることや興味のあることを教えてください。</label>
+            <br>
+            <textarea class="form-control" id="body" name="STEM（理系）分野に興味を持ったきっかけ"
+            data-formrun-type="text"
+            data-formrun-chars-max="200">
+            </textarea>
+        </div>
+
+        <!-- あなたが最も興味のある分野を1つお選びください。 -->
+        <div>
+            <label>あなたが最も興味のある分野を1つお選びください。（あくまで現時点で関心を持っているものをお選び頂く形であり、将来変更になっても選考や給付への影響はありません。）</label>
+            <select name="最も興味のある分野">
+                <option value="0">選択してください</option>
+                <option value="1">まだ決まっていない/検討中である</option>
+                <option value="2">素材、物質などの研究開発に関わる、化学分野</option>
+                <option value="3">ものづくりに関わる、工学（機械、電気電子など）分野</option>
+                <option value="4">住まいや街作りに関わる、土木・建築分野</option>
+                <option value="5">プログラミング・AIなど、情報科学分野</option>
+                <option value="6">医療に関わる、医・歯・薬分野</option>
+                <option value="7">人の健康や福祉に関わる、看護、​​美容、栄養、食品などの分野</option>
+                <option value="8">遺伝子、バイオなどの生物分野</option>
+                <option value="9">航空宇宙、天文学、惑星科学などの宇宙分野</option>
+                <option value="10">環境学、地質学、気候学などの地学分野</option>
+                <option value="11">獣医学、畜産学、植物学、土壌学などの農学分野</option>
+                <option value="12">論理をつきつめる、数学・物理などの理学分野</option>
+                <option value="13">理科教育、数学教育などの教育分野</option>
+                <option value="14">原子力、燃料電池、新エネルギーなどのエネルギー分野</option>
+            </select>
+        </div>
+
+        <!-- ハードル -->
+        <div>
+            <label>高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。</label>
+            <label><input type="checkbox" name="ハードルは特にない" value="1" >1.ハードルは特にない</label>
+            <label><input type="checkbox" name="理数系科目の成績が伸び悩んでいること" value="2">2.理数系科目の成績が伸び悩んでいること</label><br>
+            <label><input type="checkbox" name="先生や知人、友人、先輩など親以外の第3者から理系以外の分野への進学を勧められていること" value="3">3.先生や知人、友人、先輩など親以外の第3者から理系以外の分野への進学を勧められていること</label><br>
+            <label><input type="checkbox" name="親が大学進学していないためイメージがわきづらいこと" value="4">4.親が大学進学していないためイメージがわきづらいこと</label><br>
+            <label><input type="checkbox" name="親が文系大学進学のためイメージがわきづらいこと" value="5">5.親が文系大学進学のためイメージがわきづらいこと</label><br>
+            <label><input type="checkbox" name="親戚、家族などに理系や進みたい分野に進学することを反対されていること" value="6">6.親戚、家族などに理系や進みたい分野に進学することを反対されていること</label><br>
+            <label><input type="checkbox" name="理系に進学するための学費が十分にないこと" value="7">7.理系に進学するための学費が十分にないこと</label><br>
+            <label><input type="checkbox" name="周囲に理系に進んだ先輩や進みたい同級生がおらず、情報が少ないこと" value="8">8.周囲に理系に進んだ先輩や進みたい同級生がおらず、情報が少ないこと</label><br>
+            <label><input type="checkbox" name="居住地の地理的な環境（島嶼部、山間地など）で、何をするにも交通費がかかること" value="9">9.居住地の地理的な環境（島嶼部、山間地など）で、何をするにも交通費がかかること</label><br>
+            <label><input type="checkbox" name="就職先のイメージがわいておらず、理系に進むことに不安があること" value="10">10.就職先のイメージがわいておらず、理系に進むことに不安があること</label><br>
+            <label><input type="checkbox" name="自分が何をやりたいのか将来像がまだ明確になっていないこと" value="11">11.自分が何をやりたいのか将来像がまだ明確になっていないこと</label>
+        </div>
+
+        <!-- ハードル  -->
+        <div>
+            <label>その他、上記以外でハードルになっていることがあれば自由にお書きください</label>
+            <br>
+            <textarea class="form-control" id="body" name="ハードルになっていること"
+            data-formrun-type="text">
+            </textarea>
+        </div>
+
+        <!-- 現在、あなた自身の文理選択について、どう考えていますか？ -->
+        <div>
+            <label>現在、あなた自身の文理選択について、どう考えていますか？</label>
+            <select name="進路志向">
+                <option value="0">選択してください</option>
+                <option value="1">わからない・まだ決めていない（迷っている）</option>
+                <option value="2">理系</option>
+                <option value="3">どちらかといえば理系</option>
+                <option value="4">どちらでもない</option>
+                <option value="5">どちらかといえば文系</option>
+                <option value="6">文系</option>
+            </select>
+        </div>
+
+        <!-- あなたが当財団を知ったきっかけを教えてください（複数回答可） -->
+        <div>
+            <label>あなたが当財団を知ったきっかけを教えてください（複数回答可）</label>
+            <label><input type="checkbox" name="Instagram" value="Instagram" >Instagram</label>
+            <label><input type="checkbox" name="X(旧Twitter)" value="X(旧Twitter)">X(旧Twitter)</label><br>
+            <label><input type="checkbox" name="LINE" value="LINE">LINE</label><br>
+            <label><input type="checkbox" name="インターネット検索" value="インターネット検索">インターネット検索</label><br>
+            <label><input type="checkbox" name="学校のチラシ配布（紙）" value="学校のチラシ配布（紙）">学校のチラシ配布（紙）</label><br>
+            <label><input type="checkbox" name="学校のチラシ配布（デジタル）" value="学校のチラシ配布（デジタル）">学校のチラシ配布（デジタル）</label><br>
+            <label><input type="checkbox" name="学校に貼ってあったポスター等の掲示物" value="学校に貼ってあったポスター等の掲示物">学校に貼ってあったポスター等の掲示物</label><br>
+            <label><input type="checkbox" name="塾に貼ってあったポスター" value="塾に貼ってあったポスター">塾に貼ってあったポスター</label><br>
+            <label><input type="checkbox" name="塾からのメールやチラシ" value="塾からのメールやチラシ">塾からのメールやチラシ</label><br>
+            <label><input type="checkbox" name="奨学金情報サイト" value="奨学金情報サイト">奨学金情報サイト</label><br>
+            <label><input type="checkbox" name="ニュースサイト" value="ニュースサイト">ニュースサイト</label><br>
+            <label><input type="checkbox" name="新聞" value="新聞">新聞</label><br>
+            <label><input type="checkbox" name="テレビ" value="テレビ">テレビ</label><br>
+            <label><input type="checkbox" name="保護者の紹介" value="保護者の紹介">保護者の紹介</label><br>
+            <label><input type="checkbox" name="先生の紹介" value="先生の紹介">先生の紹介</label><br>
+            <label><input type="checkbox" name="友人・知人の紹介" value="友人・知人の紹介">友人・知人の紹介</label><br>
+            <label><input type="checkbox" name="D&I財団主催イベント" value="D&I財団主催イベント">D&I財団主催イベント</label><br>
+            <label><input type="checkbox" name="Youtube" value="Youtube">Youtube</label><br>
+            <label><input type="checkbox" name="TikTok" value="TikTok">TikTok</label><br>
+            <label><input type="checkbox" name="図書館その他公共施設でのポスター等の掲示物" value="図書館その他公共施設でのポスター等の掲示物">図書館その他公共施設でのポスター等の掲示物</label><br>
+            <label><input type="checkbox" name="その他" value="その他">その他</label>
+        </div>
+
+        <!-- 今回のご応募にあたって、保護者の同意を得ていますか。 -->
+        <div>
+            <label>今回のご応募にあたって、保護者の同意を得ていますか。</label>
+            <label><input type="checkbox" name="はい" value="はい">はい</label>
+        </div>
+
+        <!-- 過去に山田進太郎D&I財団の奨学金、奨学助成金の給付は受けていないですか？ -->
+        <div>
+            <label>過去に山田進太郎D&I財団の奨学金、奨学助成金の給付は受けていないですか？</label>
+            <label><input type="checkbox" name="はい" value="はい">はい</label>
+        </div>
+
+        <!-- 山田進太郎D&I財団がお送りする各種無料メルマガ（STEM分野に興味がある女子向けイベント情報等）の購読を希望しますか？ -->
+        <div>
+            <label>山田進太郎D&I財団がお送りする各種無料メルマガ（STEM分野に興味がある女子向けイベント情報等）の購読を希望しますか？</label>
+            <select name="メルマガ意向">
+                <option value="0">選択してください</option>
+                <option value="1">はい</option>
+                <option value="2">はい</option>
+                <option value="3">いいえ</option>
+                <option value="4">購読済み</option>
+            </select>
+        </div>
+
+        <!-- 個人情報の取扱の規約に同意する -->
         <div>
             <label>個人情報利用同意 [必須]</label>
             <input type="checkbox" name="個人情報利用同意" data-formrun-required>
@@ -72,122 +245,6 @@
     </form>
     
 
-    <script>
-        const kanaList = 'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわ';
-        let schoolData = { high: {}, technical: {} };
-        let selectedPrefCode = "";
-        let selectedSchoolType = "high"; // 初期値は高等学校
-
-        const suggestionList = document.getElementById('suggestionList');
-        const codeInput = document.getElementById('schoolCode');
-        const kanaContainer = document.getElementById('kanaList');
-        const prefSelect = document.getElementById('prefSelect');
-        const schoolTypeSelect = document.getElementById('schoolTypeSelect');
-    
-        // 初期状態では非表示
-        kanaContainer.style.display = 'none';
-    
-        // fetch 成功後にイベントリスナーを追加
-        fetch('schools.json')
-            .then(response => response.json())
-            .then(data => {
-                schoolData = data;
-                schoolTypeSelect.addEventListener('change', onSchoolTypeChange); // 学校の種類変更時のイベント
-                prefSelect.addEventListener('change', onPrefChange); // 都道府県変更時のイベント
-            })
-            .catch(error => console.error('学校データの読み込みに失敗しました:', error));
-
-        // 学校の種類が変わった時
-        function onSchoolTypeChange() {
-            selectedSchoolType = schoolTypeSelect.value;
-            prefSelect.value = ''; // 都道府県選択をリセット
-            kanaContainer.style.display = 'none'; // ひらがなリストを非表示に
-            if (selectedSchoolType) {
-                suggestionList.innerHTML = '都道府県を選択してください。'; // 学校のリストをリセット
-            } else {
-                suggestionList.innerHTML = '';
-            }
-            codeInput.value = ''; // 学校コードもリセット
-        }
-
-        // 都道府県変更時
-        function onPrefChange() {
-            selectedPrefCode = prefSelect.value;
-            suggestionList.innerHTML = '';
-            codeInput.value = '';
-            kanaContainer.innerHTML = '';
-
-            if (selectedPrefCode) {
-                const kanaSet = new Set();
-                const schoolList = schoolData[selectedSchoolType][selectedPrefCode] || [];
-
-                schoolList
-                    .filter(s => s.kana)
-                    .forEach(s => kanaSet.add(s.kana.charAt(0)));
-
-                if (kanaSet.size > 0) {
-                    kanaContainer.style.display = 'flex';
-                    renderKanaButtons([...kanaSet].sort());
-                } else {
-                    kanaContainer.style.display = 'none';
-                }
-            } else {
-                kanaContainer.style.display = 'none';
-            }
-        }
-
-    
-        function renderKanaButtons(kanaArray) {
-            kanaArray.forEach(kana => {
-                const btn = document.createElement('button');
-                btn.textContent = kana;
-                btn.style.padding = '5px 10px';
-                btn.style.border = '1px solid #ccc';
-                btn.style.borderRadius = '5px';
-                btn.style.background = '#f9f9f9';
-                btn.style.cursor = 'pointer';
-                btn.type = 'button';
-                btn.addEventListener('click', () => {
-                    if (!selectedPrefCode) {
-                        alert('先に都道府県を選択してください');
-                        return;
-                    }
-                    showSuggestions(kana);
-                });
-                kanaContainer.appendChild(btn);
-            });
-        }
-    
-        function showSuggestions(kana) {
-            suggestionList.innerHTML = '';
-            const schoolList = schoolData[selectedSchoolType][selectedPrefCode] || [];
-
-            const results = schoolList.filter(school =>
-                school.kana &&
-                school.kana.startsWith(kana)
-            );
-
-            if (results.length === 0) {
-                const li = document.createElement('li');
-                li.textContent = '該当する学校がありません';
-                li.style.padding = '5px';
-                suggestionList.appendChild(li);
-            } else {
-                results.forEach(school => {
-                    const li = document.createElement('li');
-                    li.textContent = school.name;
-                    li.style.cursor = 'pointer';
-                    li.style.padding = '5px';
-                    li.style.listStyle = 'none';
-                    li.addEventListener('click', () => {
-                        codeInput.value = school.code;
-                        suggestionList.innerHTML = '';
-                    });
-                    suggestionList.appendChild(li);
-                });
-            }
-        }
-
-    </script>
+    <script src="./samp.js"></script>
 </body>
 </html>
