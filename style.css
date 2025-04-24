@@ -1,0 +1,184 @@
+/* 全体のリセットとベーススタイル */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+    margin: 2rem auto;
+    max-width: 600px;
+    padding: 1rem;
+}
+
+/* 見出し */
+h1 {
+    color: #009C7A;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-weight: normal;
+}
+
+h2 {
+    color: #009C7A;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+    text-align: center;
+}
+
+h3 {
+    color: #009C7A;
+    font-size: 1.0rem;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+    text-align: center;
+}
+
+.attention {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.deadline {
+    font-size: 1.0rem;
+    color: #00c3ea;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* フォームグループごとのスタイル */
+.form-group {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+/* ラベル（すべて）のフォントウェイトを標準に */
+/* .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+    color: #222;
+} */
+
+/* インライン入力エリア */
+.form-inline-name {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-inline-postal{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-inline {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* 入力欄共通スタイル */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    /* background-color: #f9f9f9; */
+    transition: border-color 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #009C7A;
+    outline: none;
+    background-color: #fff;
+}
+
+/* チェックボックス（親要素を囲う） */
+.checkbox-wrapper {
+    /* background-color: #f9f9f9; */
+    border: 1px solid #ccc;
+    padding: 0.6rem;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* チェックボックス自体 */
+input[type="checkbox"] {
+    accent-color: #009C7A;
+    margin: 0;
+}
+
+/* 選択リストや補助テキストのデザイン */
+select {
+    background-color: #fff;
+}
+
+.description {
+    font-size: 0.8rem;
+    color: #b0b0b0;
+    margin-bottom: 0.5rem;
+}
+
+/* エラーメッセージ */
+[data-formrun-show-if-error] {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+/* かなリスト、検索リスト */
+#kanaList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+#suggestionList {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #fdfdfd;
+    font-size: 0.95rem;
+}
+
+/* テキストエリア */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-width: 570px;
+}
+
+/* ボタン（必要であれば） */
+button, input[type="submit"] {
+    background-color: #009C7A;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #007e63;
+}

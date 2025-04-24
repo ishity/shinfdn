@@ -2,108 +2,136 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>テスト：STEM(理系)女子奨学助成金申し込み</title>
     <script src="https://sdk.form.run/js/v2/formrun.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- ロゴ -->
+    <h1>テスト：STEM(理系)女子奨学助成金申し込み</h1>
+
+    <h2>高等学校1、2年生(高専含む)対象</h2>
+
+    <h3>2025年4月時点で高校新2、3年生<br>または高専新2、3年生になる方</h3>
+
+    <p class="attention">記載内容が事実と異なっていた場合、給付取り消しとなることがあります。虚偽の記載はしないようにお願いします。</p>
+    
+    <p class="deadline">回答締め切り 2025-05-20 23:45</p>
+
+    <p>応募者ご本人について伺います。</p>
+
     <form class="formrun" action="https://form.run/api/v1/r/2wxtvgvijfo5ckudlaa26unj" method="post">
 
-        <!-- 姓名を分けて記入 -->
-        <label>名前</label>
-        <div>
-            <div>
-                <label>姓</label>
-                <input name="姓" type="text" data-formrun-required>
-                <label>名</label>
-                <input name="名" type="text" data-formrun-required>
-            </div>
-    
-            <label>名前（フリガナ）</label>
-            <div>
-                <label>セイ</label>
-                <input name="セイ" type="text" data-formrun-required>
-                <label>メイ</label>
-                <input name="メイ" type="text" data-formrun-required>
+        <!-- 名前 必須-->
+        <div class="form-group">
+            <label>名前</label>
+            <div class="form-inline-name">
+                <div>
+                    <!-- <label for="sei">姓</label> -->
+                    <input id="sei" name="姓" type="text" placeholder="姓" data-formrun-required>
+                </div>
+                <div>
+                    <!-- <label for="mei">名</label> -->
+                    <input id="mei" name="名" type="text" placeholder="名" data-formrun-required>
+                </div>
             </div>
         </div>
-
-        <br>
     
-        <!-- 登録済みメールアドレス -->
-        <div>
-            <label>登録済みメールアドレス ※変更不可</label>
-            <p>本申し込みフォームのご案内をお送りしましたこちらのメールアドレスに、申し込み後の完了メールおよび、2025年2月中旬頃に選考結果が届きます。申し込み完了メールの受信を必ずご確認ください。1つのメールアドレスにつき1人のみ応募いただけます。姉妹などで応募頂く場合は別々のメールアドレスでのご登録をお願いします。</p>
-            <input name="メールアドレス" type="text" data-formrun-type="email" data-formrun-required>
+        <!-- フリガナ -->
+        <div class="form-group">
+            <label>名前（フリガナ）</label>
+            <div class="form-inline-name">
+                <div>
+                    <!-- <label for="sei-kana">セイ</label> -->
+                    <input id="sei-kana" name="セイ" type="text" placeholder="セイ" data-formrun-required>
+                </div>
+                <div>
+                    <!-- <label for="mei-kana">メイ</label> -->
+                    <input id="mei-kana" name="メイ" type="text" placeholder="メイ" data-formrun-required>
+                </div>
+            </div>
+        </div>
+    
+        <!-- メールアドレス -->
+        <div class="form-group">
+            <label for="email">登録済みメールアドレス（変更不可）</label>
+            <p class="description">本申し込みフォームのご案内をお送りしましたこちらのメールアドレスに、申し込み後の完了メールおよび、2025年2月中旬頃に選考結果が届きます。申し込み完了メールの受信を必ずご確認ください。1つのメールアドレスにつき1人のみ応募いただけます。姉妹などで応募頂く場合は別々のメールアドレスでのご登録をお願いします。</p>
+            <input id="email" name="メールアドレス" type="text" data-formrun-type="email" data-formrun-required>
             <div data-formrun-show-if-error="メールアドレス">メールアドレスを正しく入力してください</div>
         </div>
 
-        <br>
-
-        <!-- 現在の学年 -->
-        <div>
-            <label>現在の学年</label>
-            <select name="現在の学年" data-formrun-required>
-                <option value="0">選択してください</option>
+        <!-- 学年 -->
+        <div class="form-group">
+            <label for="grade">現在の学年</label>
+            <select id="grade" type="text" name="現在の学年" data-formrun-required>
+                <option value="">選択してください</option>
                 <option value="1">高校1年生</option>
                 <option value="2">高校2年生</option>
-                <option value="3">高等専門学校1年生</option>
-                <option value="4">高等専門学校2年生</option>
+                <option value="3">高専1年生</option>
+                <option value="4">高専2年生</option>
             </select>
         </div>
 
-        <br>
-
         <!-- 生年月日 -->
-        <div>
-            <label>生年月日</label>
-            <input type="date" name="date">
+        <div class="form-group">
+            <label for="birth">生年月日</label>
+            <input type="date" name="date" data-formrun-required>
         </div>
-
-        <br>
 
         <!-- 住所 -->
-        <div class="card-block">
+        <div class="form-group">
             <label>住所</label>
-            <p>郵便番号（ハイフンなし）を入力すると自動補完されます</p>
-            <input type="text" name="郵便番号" data-formrun-type="postal-code-jp">
-            <select name="都道府県" data-formrun-type="region prefecture-jp"></select>
-            <input type="text" name="市区町村" data-formrun-type="locality street-address" >
-            <input type="text" name="番地">
-            <input type="text" name="建物名・部屋番号">
-        </div>
-
-        <br>
+            <p class="description">郵便番号（ハイフンなし）を入力すると自動補完されます</p>
+            <div class="form-inline-postal">   
+                <div>
+                    <!-- <label for="postal-code">郵便番号</label> -->
+                    <input type="text" name="郵便番号" data-formrun-type="postal-code-jp" placeholder="郵便番号" data-formrun-required>
+                </div>
+                <div>
+                    <!-- <label for="prefecture">都道府県</label> -->
+                    <select name="都道府県" data-formrun-type="region prefecture-jp" placeholder="都道府県" data-formrun-required></select>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div>
+                    <!-- <label for="detail-address">市区町村</label> -->
+                    <input type="text" name="市区町村" data-formrun-type="locality street-address" placeholder="市区町村" data-formrun-required>
+                </div>
+                <div>
+                    <!-- <label for="detail-address2">番地</label> -->
+                    <input type="text" name="番地" placeholder="番地" data-formrun-required>
+                </div>
+                <div>
+                    <!-- <label for="detail-address3">建物名・部屋番号</label> -->
+                    <input type="text" name="建物名・部屋番号" placeholder="建物名・部屋番号">
+                </div>
+            </div>
+        </div>  
 
         <!-- 本人または保護者の電話番号 -->
-        <div>
+        <div class="form-group">
             <label>本人または保護者の電話番号</label>
-            <input type="text" name="電話番号" data-formrun-type="tel">
-        </div> 
-
-        <br>
+            <input type="text" name="電話番号" data-formrun-type="tel" data-formrun-required>
+        </div>
 
         <!-- 所属学校に関する情報を検索して入力して下さい -->
-        <div>
-            <label>所属学校に関する情報を検索して入力して下さい</label>
+        <div class="form-group">
+            <label>学校名</label>
             <input type="text" name="学校名" data-formrun-required>
         </div>
 
-        <br>
-
-        <div>
+        <div class="form-group">
             <label>学校の種類を選択</label>
-            <select id="schoolTypeSelect">
+            <select id="schoolTypeSelect" data-formrun-required>
                 <option value="">選択してください</option>
                 <option value="high">高等学校（高校）</option>
                 <option value="technical">高等専門学校（高専）</option>
             </select>
-        </div>
+        </div>  
 
-        <br>
-    
-        <div>
+        <div class="form-group">
             <label>都道府県を選択</label>
-            <select id="prefSelect">
+            <select id="prefSelect" data-formrun-required>
                 <option value="">選択してください</option>
                 <option value="01">北海道</option>
                 <option value="11">埼玉県</option>
@@ -112,46 +140,40 @@
             </select>
         </div>
 
-        <br>
-
-        <div>
+        <div class="form-group">
             <label>高校名検索（頭文字を選んでください）</label>
             <div id="kanaList" style="margin-bottom: 10px; flex-wrap: wrap; display: flex; gap: 5px;"></div>
             <ul id="suggestionList" style="border: 0.5px solid #ccc; max-height: 150px; overflow-y: auto; padding: 0;">学校の種類と都道府県を選択してください。</ul>
         </div>
 
-        <br>
-        
-        <div>
+        <div class="form-group">
             <label>学校コード</label>
-            <input name="学校コード" id="schoolCode" type="text" readonly>
-        </div>
-
-        <br>
+            <input name="学校コード" id="schoolCode" type="text" readonly data-formrun-required>
+        </div>  
 
         <!-- あなたは女性ですか？ -->
-        <div>
-            <label><input type="checkbox" name="あなたは女性ですか？" value="はい" >はい</label>
+        <div class="form-group">
+            <label>あなたは女性ですか？</label>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" value="はい" name="あなたは女性ですか？" data-formrun-required>
+                <label for="あなたは女性ですか？">はい</label>
+            </div>
         </div>
-
-        <br>
         
         <!-- STEM（理系）分野に興味を持ったきっかけ（100文字程度、上限200文字）文字数 200文字以内　現在の文字数 0 -->
-        <div>
+        <div class="form-group">
             <label>STEM（理系）分野に興味を持ったきっかけや、進学して学んでみたいことや将来つきたい仕事のイメージについて、もしあればお聞かせください。まだ進路が決まっていない場合は、現在考えていることや興味のあることを教えてください。</label>
-            <br>
             <textarea class="form-control" id="body" name="STEM（理系）分野に興味を持ったきっかけ"
             data-formrun-type="text"
-            data-formrun-chars-max="200">
+            data-formrun-chars-max="200"
+            data-formrun-required>
             </textarea>
         </div>
 
-        <br>
-
         <!-- あなたが最も興味のある分野を1つお選びください。 -->
-        <div>
+        <div class="form-group">
             <label>あなたが最も興味のある分野を1つお選びください。（あくまで現時点で関心を持っているものをお選び頂く形であり、将来変更になっても選考や給付への影響はありません。）</label>
-            <select name="最も興味のある分野">
+            <select name="最も興味のある分野" data-formrun-required>
                 <option value="0">選択してください</option>
                 <option value="1">まだ決まっていない/検討中である</option>
                 <option value="2">素材、物質などの研究開発に関わる、化学分野</option>
@@ -170,28 +192,58 @@
             </select>
         </div>
 
-        <br>
-
         <!-- ハードル -->
-        <div>
+        <div class="form-group">
             <label>高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。</label>
-            <label><input type="checkbox" name="ハードルは特にない" value="1" >1.ハードルは特にない</label>
-            <label><input type="checkbox" name="理数系科目の成績が伸び悩んでいること" value="2">2.理数系科目の成績が伸び悩んでいること</label><br>
-            <label><input type="checkbox" name="先生や知人、友人、先輩など親以外の第3者から理系以外の分野への進学を勧められていること" value="3">3.先生や知人、友人、先輩など親以外の第3者から理系以外の分野への進学を勧められていること</label><br>
-            <label><input type="checkbox" name="親が大学進学していないためイメージがわきづらいこと" value="4">4.親が大学進学していないためイメージがわきづらいこと</label><br>
-            <label><input type="checkbox" name="親が文系大学進学のためイメージがわきづらいこと" value="5">5.親が文系大学進学のためイメージがわきづらいこと</label><br>
-            <label><input type="checkbox" name="親戚、家族などに理系や進みたい分野に進学することを反対されていること" value="6">6.親戚、家族などに理系や進みたい分野に進学することを反対されていること</label><br>
-            <label><input type="checkbox" name="理系に進学するための学費が十分にないこと" value="7">7.理系に進学するための学費が十分にないこと</label><br>
-            <label><input type="checkbox" name="周囲に理系に進んだ先輩や進みたい同級生がおらず、情報が少ないこと" value="8">8.周囲に理系に進んだ先輩や進みたい同級生がおらず、情報が少ないこと</label><br>
-            <label><input type="checkbox" name="居住地の地理的な環境（島嶼部、山間地など）で、何をするにも交通費がかかること" value="9">9.居住地の地理的な環境（島嶼部、山間地など）で、何をするにも交通費がかかること</label><br>
-            <label><input type="checkbox" name="就職先のイメージがわいておらず、理系に進むことに不安があること" value="10">10.就職先のイメージがわいておらず、理系に進むことに不安があること</label><br>
-            <label><input type="checkbox" name="自分が何をやりたいのか将来像がまだ明確になっていないこと" value="11">11.自分が何をやりたいのか将来像がまだ明確になっていないこと</label>
+
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="option1" name="ハードルは特にない" value="1">
+                <label for="option1">1.ハードルは特にない</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="option2" name="理数系科目の成績が伸び悩んでいること" value="2">
+                <label for="option2">2.理数系科目の成績が伸び悩んでいること</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="option3" name="先生や知人、友人、先輩など親以外の第3者から理系以外の分野への進学を勧められていること" value="3">
+                <label for="option3">3.先生や知人、友人、先輩など親以外の第3者から理系以外の分野への進学を勧められていること</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="option4" name="親が大学進学していないためイメージがわきづらいこと" value="4">
+                <label for="option4">4.親が大学進学していないためイメージがわきづらいこと</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="option5" name="親が文系大学進学のためイメージがわきづらいこと" value="5">
+                <label for="option5">5.親が文系大学進学のためイメージがわきづらいこと</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="option6" name="親戚、家族などに理系や進みたい分野に進学することを反対されていること" value="6">
+                <label for="option6">6.親戚、家族などに理系や進みたい分野に進学することを反対されていること</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="option7" name="理系に進学するための学費が十分にないこと" value="7">
+                <label for="option7">7.理系に進学するための学費が十分にないこと</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="option8" name="周囲に理系に進んだ先輩や進みたい同級生がおらず、情報が少ないこと" value="8">
+                <label for="option8">8.周囲に理系に進んだ先輩や進みたい同級生がおらず、情報が少ないこと</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="option9" name="居住地の地理的な環境（島嶼部、山間地など）で、何をするにも交通費がかかること" value="9">
+                <label for="option9">9.居住地の地理的な環境（島嶼部、山間地など）で、何をするにも交通費がかかること</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="option10" name="就職先のイメージがわいておらず、理系に進むことに不安があること" value="10">
+                <label for="option10">10.就職先のイメージがわいておらず、理系に進むことに不安があること</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="option11" name="自分が何をやりたいのか将来像がまだ明確になっていないこと" value="11">
+                <label for="option11">11.自分が何をやりたいのか将来像がまだ明確になっていないこと</label>
+            </div>
         </div>
 
-        <br>
-
         <!-- ハードル  -->
-        <div>
+        <div class="form-group">
             <label>その他、上記以外でハードルになっていることがあれば自由にお書きください</label>
             <br>
             <textarea class="form-control" id="body" name="ハードルになっていること"
@@ -199,12 +251,10 @@
             </textarea>
         </div>
 
-        <br>
-
         <!-- 現在、あなた自身の文理選択について、どう考えていますか？ -->
-        <div>
+        <div class="form-group">
             <label>現在、あなた自身の文理選択について、どう考えていますか？</label>
-            <select name="進路志向">
+            <select name="進路志向" data-formrun-required>
                 <option value="0">選択してください</option>
                 <option value="1">わからない・まだ決めていない（迷っている）</option>
                 <option value="2">理系</option>
@@ -215,85 +265,144 @@
             </select>
         </div>
 
-        <br>
-
         <!-- あなたが当財団を知ったきっかけを教えてください（複数回答可） -->
-        <div>
+        <div class="form-group">
             <label>あなたが当財団を知ったきっかけを教えてください（複数回答可）</label>
-            <br>
-            <label><input type="checkbox" name="Instagram" value="Instagram" >Instagram</label>
-            <label><input type="checkbox" name="X(旧Twitter)" value="X(旧Twitter)">X(旧Twitter)</label><br>
-            <label><input type="checkbox" name="LINE" value="LINE">LINE</label><br>
-            <label><input type="checkbox" name="インターネット検索" value="インターネット検索">インターネット検索</label><br>
-            <label><input type="checkbox" name="学校のチラシ配布（紙）" value="学校のチラシ配布（紙）">学校のチラシ配布（紙）</label><br>
-            <label><input type="checkbox" name="学校のチラシ配布（デジタル）" value="学校のチラシ配布（デジタル）">学校のチラシ配布（デジタル）</label><br>
-            <label><input type="checkbox" name="学校に貼ってあったポスター等の掲示物" value="学校に貼ってあったポスター等の掲示物">学校に貼ってあったポスター等の掲示物</label><br>
-            <label><input type="checkbox" name="塾に貼ってあったポスター" value="塾に貼ってあったポスター">塾に貼ってあったポスター</label><br>
-            <label><input type="checkbox" name="塾からのメールやチラシ" value="塾からのメールやチラシ">塾からのメールやチラシ</label><br>
-            <label><input type="checkbox" name="奨学金情報サイト" value="奨学金情報サイト">奨学金情報サイト</label><br>
-            <label><input type="checkbox" name="ニュースサイト" value="ニュースサイト">ニュースサイト</label><br>
-            <label><input type="checkbox" name="新聞" value="新聞">新聞</label><br>
-            <label><input type="checkbox" name="テレビ" value="テレビ">テレビ</label><br>
-            <label><input type="checkbox" name="保護者の紹介" value="保護者の紹介">保護者の紹介</label><br>
-            <label><input type="checkbox" name="先生の紹介" value="先生の紹介">先生の紹介</label><br>
-            <label><input type="checkbox" name="友人・知人の紹介" value="友人・知人の紹介">友人・知人の紹介</label><br>
-            <label><input type="checkbox" name="D&I財団主催イベント" value="D&I財団主催イベント">D&I財団主催イベント</label><br>
-            <label><input type="checkbox" name="Youtube" value="Youtube">Youtube</label><br>
-            <label><input type="checkbox" name="TikTok" value="TikTok">TikTok</label><br>
-            <label><input type="checkbox" name="図書館その他公共施設でのポスター等の掲示物" value="図書館その他公共施設でのポスター等の掲示物">図書館その他公共施設でのポスター等の掲示物</label><br>
-            <label><input type="checkbox" name="その他" value="その他">その他</label>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns1" name="Instagram" value="Instagram">
+                <label for="sns1">Instagram</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns2" name="X(旧Twitter)" value="X(旧Twitter)">
+                <label for="sns2">X(旧Twitter)</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns3" name="LINE" value="LINE">
+                <label for="sns3">LINE</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns4" name="インターネット検索" value="インターネット検索">
+                <label for="sns4">インターネット検索</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns5" name="学校のチラシ配布（紙）" value="学校のチラシ配布（紙）">
+                <label for="sns5">学校のチラシ配布（紙）</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns6" name="学校のチラシ配布（デジタル）" value="学校のチラシ配布（デジタル）">
+                <label for="sns6">学校のチラシ配布（デジタル）</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns7" name="学校に貼ってあったポスター等の掲示物" value="学校に貼ってあったポスター等の掲示物">
+                <label for="sns7">学校に貼ってあったポスター等の掲示物</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns8" name="塾に貼ってあったポスター" value="塾に貼ってあったポスター">
+                <label for="sns8">塾に貼ってあったポスター</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns9" name="塾からのメールやチラシ" value="塾からのメールやチラシ">
+                <label for="sns9">塾からのメールやチラシ</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns10" name="奨学金情報サイト" value="奨学金情報サイト">
+                <label for="sns10">奨学金情報サイト</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns11" name="ニュースサイト" value="ニュースサイト">
+                <label for="sns11">ニュースサイト</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns12" name="新聞" value="新聞">
+                <label for="sns12">新聞</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns13" name="テレビ" value="テレビ">
+                <label for="sns13">テレビ</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns14" name="保護者の紹介" value="保護者の紹介">
+                <label for="sns14">保護者の紹介</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns15" name="先生の紹介" value="先生の紹介">
+                <label for="sns15">先生の紹介</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns16" name="友人・知人の紹介" value="友人・知人の紹介">
+                <label for="sns16">友人・知人の紹介</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns17" name="D&I財団主催イベント" value="D&I財団主催イベント">
+                <label for="sns17">D&I財団主催イベント</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns18" name="Youtube" value="Youtube">
+                <label for="sns18">Youtube</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns19" name="TikTok" value="TikTok">
+                <label for="sns19">TikTok</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns20" name="図書館その他公共施設でのポスター等の掲示物" value="図書館その他公共施設でのポスター等の掲示物">
+                <label for="sns20">図書館その他公共施設でのポスター等の掲示物</label>
+            </div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="sns21" name="その他" value="その他">
+                <label for="sns21">その他</label>
+            </div>
         </div>
-
-        <br>
 
         <!-- 今回のご応募にあたって、保護者の同意を得ていますか。 -->
-        <div>
+        <div class="form-group">
             <label>今回のご応募にあたって、保護者の同意を得ていますか。</label>
-            <label><input type="checkbox" name="はい" value="はい">はい</label>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" name="はい" value="はい" data-formrun-required>
+                <label for="kyufu">はい</label>
+            </div>
         </div>
-
-        <br>
 
         <!-- 過去に山田進太郎D&I財団の奨学金、奨学助成金の給付は受けていないですか？ -->
-        <div>
+        <div class="form-group">
             <label>過去に山田進太郎D&I財団の奨学金、奨学助成金の給付は受けていないですか？</label>
-            <label><input type="checkbox" name="はい" value="はい">はい</label>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" name="はい" value="はい" data-formrun-required>
+                <label for="kyufu">はい</label>
+            </div>
         </div>
 
-        <br>
-
         <!-- 山田進太郎D&I財団がお送りする各種無料メルマガ（STEM分野に興味がある女子向けイベント情報等）の購読を希望しますか？ -->
-        <div>
+        <div class="form-group">
             <label>山田進太郎D&I財団がお送りする各種無料メルマガ（STEM分野に興味がある女子向けイベント情報等）の購読を希望しますか？</label>
-            <select name="メルマガ意向">
-                <option value="0">選択してください</option>
+            <select name="メルマガ意向" data-formrun-required>
+                <option value="">選択してください</option>
                 <option value="1">はい</option>
-                <option value="2">はい</option>
-                <option value="3">いいえ</option>
-                <option value="4">購読済み</option>
+                <option value="2">いいえ</option>
+                <option value="3">購読済み</option>
             </select>
         </div>
 
-        <br>
-
         <!-- 個人情報の取扱の規約に同意する -->
-        <div>
+        <div class="form-group">
             <label>個人情報利用同意 [必須]</label>
-            <input type="checkbox" name="個人情報利用同意" data-formrun-required>
-            <div data-formrun-show-if-error="個人情報利用同意">同意してください</div>
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="agree" name="個人情報利用同意" data-formrun-required>
+                <label for="agree">利用規約に同意します</label>
+                <div data-formrun-show-if-error="個人情報利用同意">同意してください</div>
+            </div>
         </div>
 
-        <br>
-
-        <div class="_formrun_gotcha">
-            <style media="screen">._formrun_gotcha {position:absolute!important;height:1px;width:1px;overflow:hidden;}</style>
-            <label for="_formrun_gotcha">If you are a human, ignore this field</label>
-            <input type="text" name="_formrun_gotcha" id="_formrun_gotcha" tabindex="-1">
-        </div>
+        <div class="form-group">
+            <div class="_formrun_gotcha">
+                <style media="screen">._formrun_gotcha {position:absolute!important;height:1px;width:1px;overflow:hidden;}</style>
+                <label for="_formrun_gotcha">If you are a human, ignore this field</label>
+                <input type="text" name="_formrun_gotcha" id="_formrun_gotcha" tabindex="-1">
+            </div>
     
-        <button type="submit" data-formrun-error-text="未入力の項目があります" data-formrun-submitting-text="送信中...">送信</button>
+            <button type="submit" data-formrun-error-text="未入力の項目があります" data-formrun-submitting-text="送信中...">送信</button>
+        </div>  
     </form>
-    
 
     <script src="./samp.js"></script>
 </body>
