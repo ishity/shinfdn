@@ -11,6 +11,7 @@ const schoolTypeSelect = document.getElementById('schoolTypeSelect');
 
 // 初期状態では非表示
 kanaContainer.style.display = 'none';
+suggestionList.setAttribute('data-placeholder', '学校の種類と都道府県を選択してください。');
 
 // fetch 成功後にイベントリスナーを追加
 fetch('schools.json')
@@ -22,27 +23,31 @@ fetch('schools.json')
     })
     .catch(error => console.error('学校データの読み込みに失敗しました:', error));
 
-// 学校の種類が変わった時
 function onSchoolTypeChange() {
     selectedSchoolType = schoolTypeSelect.value;
-    prefSelect.value = ''; // 都道府県選択をリセット
     kanaContainer.style.display = 'none'; // ひらがなリストを非表示に
-    if (selectedSchoolType) {
-        suggestionList.innerHTML = '都道府県を選択してください。'; // 学校のリストをリセット
+    codeInput.value = '';
+
+    if (!selectedSchoolType && !prefSelect.value) {
+        suggestionList.innerHTML = '';
+        suggestionList.setAttribute('data-placeholder', '学校の種類と都道府県を選択してください。');
+    } else if (!selectedSchoolType && prefSelect.value) {
+        suggestionList.innerHTML = '';
+        suggestionList.setAttribute('data-placeholder', '学校の種類を選択してください。');
+    } else if (selectedSchoolType && !prefSelect.value) {
+        suggestionList.innerHTML = '';
+        suggestionList.setAttribute('data-placeholder', '都道府県を選択してください。');
     } else {
         suggestionList.innerHTML = '';
+        suggestionList.setAttribute('data-placeholder', '学校名の頭文字を選択してください。');
     }
-    codeInput.value = ''; // 学校コードもリセット
-}
+    
 
-// 都道府県変更時
-function onPrefChange() {
-    selectedPrefCode = prefSelect.value;
-    suggestionList.innerHTML = '';
-    codeInput.value = '';
-    kanaContainer.innerHTML = '';
+    if (selectedPrefCode && selectedSchoolType) {
+        suggestionList.setAttribute('data-placeholder', '学校名の頭文字を選択してください。');
 
-    if (selectedPrefCode) {
+        // 学校データの取得とひらがなボタンの描画
+        suggestionList.innerHTML = '';
         const kanaSet = new Set();
         const schoolList = schoolData[selectedSchoolType][selectedPrefCode] || [];
 
@@ -56,8 +61,53 @@ function onPrefChange() {
         } else {
             kanaContainer.style.display = 'none';
         }
-    } else {
+    }
+}
+
+function onPrefChange() {
+    selectedPrefCode = prefSelect.value;
+    kanaContainer.innerHTML = '';
+    codeInput.value = '';
+
+    if (!schoolTypeSelect.value && !selectedPrefCode) {
+        suggestionList.innerHTML = '';
+        suggestionList.setAttribute('data-placeholder', '学校の種類と都道府県を選択してください。');
         kanaContainer.style.display = 'none';
+        return;
+    }
+    
+    if (!schoolTypeSelect.value) {
+        suggestionList.innerHTML = '';
+        suggestionList.setAttribute('data-placeholder', '学校の種類を選択してください。');
+        kanaContainer.style.display = 'none';
+        return;
+    }
+    
+    if (!selectedPrefCode) {
+        suggestionList.innerHTML = '';
+        suggestionList.setAttribute('data-placeholder', '都道府県を選択してください。');
+        kanaContainer.style.display = 'none';
+        return;
+    }
+
+    if (selectedPrefCode && selectedSchoolType) {
+        suggestionList.setAttribute('data-placeholder', '学校名の頭文字を選択してください。');
+
+        // 学校データの取得とひらがなボタンの描画
+        suggestionList.innerHTML = '';
+        const kanaSet = new Set();
+        const schoolList = schoolData[selectedSchoolType][selectedPrefCode] || [];
+
+        schoolList
+            .filter(s => s.kana)
+            .forEach(s => kanaSet.add(s.kana.charAt(0)));
+
+        if (kanaSet.size > 0) {
+            kanaContainer.style.display = 'flex';
+            renderKanaButtons([...kanaSet].sort());
+        } else {
+            kanaContainer.style.display = 'none';
+        }
     }
 }
 
@@ -74,7 +124,7 @@ function renderKanaButtons(kanaArray) {
         btn.type = 'button';
         btn.addEventListener('click', () => {
             if (!selectedPrefCode) {
-                alert('先に都道府県を選択してください');
+                alert('都道府県を選択してください');
                 return;
             }
             showSuggestions(kana);
@@ -85,12 +135,16 @@ function renderKanaButtons(kanaArray) {
 
 function showSuggestions(kana) {
     suggestionList.innerHTML = '';
+    suggestionList.removeAttribute('data-placeholder');
+
     const schoolList = schoolData[selectedSchoolType][selectedPrefCode] || [];
 
     const results = schoolList.filter(school =>
         school.kana &&
         school.kana.startsWith(kana)
     );
+
+    suggestionList.setAttribute('data-placeholder', '所属する学校名を選択してください。');
 
     if (results.length === 0) {
         const li = document.createElement('li');
@@ -106,9 +160,24 @@ function showSuggestions(kana) {
             li.style.listStyle = 'none';
             li.addEventListener('click', () => {
                 codeInput.value = school.code;
-                suggestionList.innerHTML = '';
+                suggestionList.setAttribute('data-placeholder', '所属する学校名を選択してください。');
             });
             suggestionList.appendChild(li);
         });
     }
 }
+
+document.querySelectorAll('textarea').forEach(textarea => {
+    const id = textarea.id;
+    const counter = document.querySelector(`.charCount[data-for="${id}"]`);
+
+    textarea.addEventListener('input', () => {
+    const len = textarea.value.length;
+    counter.textContent = len;
+    if (len > 200) {
+        counter.classList.add('over');
+    } else {
+        counter.classList.remove('over');
+    }
+    });
+});

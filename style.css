@@ -11,7 +11,7 @@ body {
 
 /* 見出し */
 h1 {
-    color: #009C7A;
+    color: #009688;
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     text-align: center;
@@ -19,7 +19,7 @@ h1 {
 }
 
 h2 {
-    color: #009C7A;
+    color: #009688;
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
     font-weight: normal;
@@ -27,7 +27,7 @@ h2 {
 }
 
 h3 {
-    color: #009C7A;
+    color: #009688;
     font-size: 1.0rem;
     margin-bottom: 0.5rem;
     font-weight: normal;
@@ -42,42 +42,80 @@ h3 {
 
 .deadline {
     font-size: 1.0rem;
-    color: #00c3ea;
+    color: #00bcd4;
     margin-bottom: 0.5rem;
     text-align: center;
 }
 
-/* フォームグループごとのスタイル */
+/* 基本的なフォームのデザイン */
 .form-group {
     margin-top: 3rem;
     margin-bottom: 2rem;
+    /* max-width: 580px;
+    min-width: 150px;  */
 }
 
-/* ラベル（すべて）のフォントウェイトを標準に */
-/* .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: normal;
-    color: #222;
-} */
+/* テキストインプットのデザイン */
+.form-group-input {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    max-width: 570px;
+    min-width: 150px; 
+}
 
-/* インライン入力エリア */
+/* 生年月日入力欄のデザイン */
+.form-group-birth {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    max-width: 570px;
+    min-width: 150px; 
+}
+
 .form-inline-name {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
 }
 
-.form-inline-postal{
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+.form-inline-name > div {
+    flex: 1;
 }
 
-.form-inline {
+.form-inline-name input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #009C7A;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 156, 122, 0.2);
+}
+
+/* 共通：フォームのインライングループ */
+.form-inline-postal {
     display: flex;
-    gap: 1rem;
     flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.form-inline-postal > div{
+    flex: 1;
+    min-width: 150px; /* スマホ対応 */
+}
+
+.form-inline-postal input,
+.form-inline-postal select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
 /* 入力欄共通スタイル */
@@ -100,7 +138,7 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: #009C7A;
+    border-color: #009688;
     outline: none;
     background-color: #fff;
 }
@@ -119,7 +157,9 @@ textarea:focus {
 
 /* チェックボックス自体 */
 input[type="checkbox"] {
-    accent-color: #009C7A;
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: #009688;
     margin: 0;
 }
 
@@ -169,7 +209,7 @@ textarea {
 
 /* ボタン（必要であれば） */
 button, input[type="submit"] {
-    background-color: #009C7A;
+    background-color: #009688;
     color: white;
     border: none;
     padding: 0.8rem 1.2rem;
@@ -181,4 +221,84 @@ button, input[type="submit"] {
 
 button:hover, input[type="submit"]:hover {
     background-color: #007e63;
+}
+
+/* ひらがなボタンリスト */
+#kanaList button {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#kanaList button:hover {
+    background-color: #e0f7f3;
+    border-color: #009C7A;
+    color: #009C7A;
+}
+
+/* サジェストリスト全体 */
+#suggestionList {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 1rem 1rem;
+    margin-top: 0.75rem;
+    list-style: none;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* 各リストアイテム */
+#suggestionList li {
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#suggestionList li:hover {
+    background-color: #f0faf7;
+    color: #009C7A;
+}
+
+#suggestionList li:last-child {
+    border-bottom: none;
+}
+
+/* 候補がない or 選択が未完了のときのメッセージ */
+#suggestionList::before {
+    content: attr(data-placeholder);
+    display: block;
+    padding: 0.7rem;
+    background-color: #f0faf7;
+    color: #009C7A;
+    /* color: #666; */
+    font-size: 0.95rem;
+    pointer-events: none;
+}
+
+a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.charCount.over {
+    color: red;
+    font-weight: bold;
+}
+
+textarea {
+    max-width: 570px;
+    min-width: 150px;
+    min-height: 100px;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #fff;
+    color: #333; 
 }
