@@ -74,7 +74,7 @@
                     <span class="required-badge">必須</span>
                 </label>
                 <p class="description">本申し込みフォームのご案内をお送りしましたこちらのメールアドレスに、申し込み後の完了メールおよび、2025年2月中旬頃に選考結果が届きます。申し込み完了メールの受信を必ずご確認ください。1つのメールアドレスにつき1人のみ応募いただけます。姉妹などで応募頂く場合は別々のメールアドレスでのご登録をお願いします。</p>
-                <input id="email" name="登録済みメールアドレス　※変更不可" type="text" placeholder="example@mail.com" data-formrun-type="email" data-formrun-required>
+                <input id="email" name="メールアドレス" type="text" placeholder="example@mail.com" data-formrun-type="email" data-formrun-required>
                 <div class="error_text" data-formrun-show-if-error="メールアドレス">有効なメールアドレスを入力してください</div>
             </div>
 
@@ -114,8 +114,8 @@
                 <div class="form-inline-postal">   
                     <div>
                         <label for="postal-code">郵便番号</label>
-                        <input type="text" name="住所 (郵便番号)" placeholder="0123456" data-formrun-type="postal-code-jp" data-formrun-required>
-                        <div class="error_text" data-formrun-show-if-error="住所 (郵便番号)">入力してください</div>
+                        <input type="text" name="郵便番号" placeholder="0123456" data-formrun-type="postal-code-jp" data-formrun-required>
+                        <div class="error_text" data-formrun-show-if-error="郵便番号">入力してください</div>
                     </div>
                     <div>
                         <label for="prefecture">都道府県</label>
@@ -252,20 +252,20 @@
                 </label>
                 <select name="最も興味のある分野" data-formrun-required>
                     <option value="">選択してください</option>
-                    <option value="1">まだ決まっていない/検討中である</option>
-                    <option value="2">素材、物質などの研究開発に関わる、化学分野</option>
-                    <option value="3">ものづくりに関わる、工学（機械、電気電子など）分野</option>
-                    <option value="4">住まいや街作りに関わる、土木・建築分野</option>
-                    <option value="5">プログラミング・AIなど、情報科学分野</option>
-                    <option value="6">医療に関わる、医・歯・薬分野</option>
-                    <option value="7">人の健康や福祉に関わる、看護、​​美容、栄養、食品などの分野</option>
-                    <option value="8">遺伝子、バイオなどの生物分野</option>
-                    <option value="9">航空宇宙、天文学、惑星科学などの宇宙分野</option>
-                    <option value="10">環境学、地質学、気候学などの地学分野</option>
-                    <option value="11">獣医学、畜産学、植物学、土壌学などの農学分野</option>
-                    <option value="12">論理をつきつめる、数学・物理などの理学分野</option>
-                    <option value="13">理科教育、数学教育などの教育分野</option>
-                    <option value="14">原子力、燃料電池、新エネルギーなどのエネルギー分野</option>
+                    <option value="まだ決まっていない/検討中である">まだ決まっていない/検討中である</option>
+                    <option value="素材、物質などの研究開発に関わる、化学分野">素材、物質などの研究開発に関わる、化学分野</option>
+                    <option value="ものづくりに関わる、工学（機械、電気電子など）分野">ものづくりに関わる、工学（機械、電気電子など）分野</option>
+                    <option value="住まいや街作りに関わる、土木・建築分野">住まいや街作りに関わる、土木・建築分野</option>
+                    <option value="プログラミング・AIなど、情報科学分野">プログラミング・AIなど、情報科学分野</option>
+                    <option value="医療に関わる、医・歯・薬分野">医療に関わる、医・歯・薬分野</option>
+                    <option value="人の健康や福祉に関わる、看護、​​美容、栄養、食品などの分野">人の健康や福祉に関わる、看護、​​美容、栄養、食品などの分野</option>
+                    <option value="遺伝子、バイオなどの生物分野">遺伝子、バイオなどの生物分野</option>
+                    <option value="航空宇宙、天文学、惑星科学などの宇宙分野">航空宇宙、天文学、惑星科学などの宇宙分野</option>
+                    <option value="環境学、地質学、気候学などの地学分野">環境学、地質学、気候学などの地学分野</option>
+                    <option value="獣医学、畜産学、植物学、土壌学などの農学分野">獣医学、畜産学、植物学、土壌学などの農学分野</option>
+                    <option value="論理をつきつめる、数学・物理などの理学分野">論理をつきつめる、数学・物理などの理学分野</option>
+                    <option value="理科教育、数学教育などの教育分野">理科教育、数学教育などの教育分野</option>
+                    <option value="原子力、燃料電池、新エネルギーなどのエネルギー分野">原子力、燃料電池、新エネルギーなどのエネルギー分野</option>
                 </select>
                 <div class="error_text" data-formrun-show-if-error="最も興味のある分野">入力してください</div>
             </div>
@@ -279,47 +279,47 @@
                 <div id="checkbox-container-hurdle">
                     <!-- チェックボックス群（JSでランダムに並び替え） -->
                     <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option1" name="ハードル[]" value="1">
+                        <input type="checkbox" id="option1" name="ハードル" value="1">
                         <label for="option1">ハードルは特にない</label>
                     </div>
                     <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option2" name="ハードル[]" value="2">
+                        <input type="checkbox" id="option2" name="ハードル" value="2">
                         <label for="option2">理数系科目の成績が伸び悩んでいること</label>
                     </div>
                     <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option3" name="ハードル[]" value="3">
+                        <input type="checkbox" id="option3" name="ハードル" value="3">
                         <label for="option3">先生や知人、友人、先輩など親以外の第3者から理系以外の分野への進学を勧められていること</label>
                     </div>
                     <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option4" name="ハードル[]" value="4">
+                        <input type="checkbox" id="option4" name="ハードル" value="4">
                         <label for="option4">親が大学進学していないためイメージがわきづらいこと</label>
                     </div>
                     <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option5" name="ハードル[]" value="5">
+                        <input type="checkbox" id="option5" name="ハードル" value="5">
                         <label for="option5">親が文系大学進学のためイメージがわきづらいこと</label>
                     </div>
                     <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option6" name="ハードル[]" value="6">
+                        <input type="checkbox" id="option6" name="ハードル" value="6">
                         <label for="option6">親戚、家族などに理系や進みたい分野に進学することを反対されていること</label>
                     </div>
                     <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option7" name="ハードル[]" value="7">
+                        <input type="checkbox" id="option7" name="ハードル" value="7">
                         <label for="option7">理系に進学するための学費が十分にないこと</label>
                     </div>
                     <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option8" name="ハードル[]" value="8">
+                        <input type="checkbox" id="option8" name="ハードル" value="8">
                         <label for="option8">周囲に理系に進んだ先輩や進みたい同級生がおらず、情報が少ないこと</label>
                     </div>
                     <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option9" name="ハードル[]" value="9">
+                        <input type="checkbox" id="option9" name="ハードル" value="9">
                         <label for="option9">居住地の地理的な環境（島嶼部、山間地など）で、何をするにも交通費がかかること</label>
                     </div>
                     <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option10" name="ハードル[]" value="10">
+                        <input type="checkbox" id="option10" name="ハードル" value="10">
                         <label for="option10">就職先のイメージがわいておらず、理系に進むことに不安があること</label>
                     </div>
                     <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option11" name="ハードル[]" value="11">
+                        <input type="checkbox" id="option11" name="ハードル" value="11">
                         <label for="option11">自分が何をやりたいのか将来像がまだ明確になっていないこと</label>
                     </div>
                 </div>
@@ -343,12 +343,12 @@
                 </label>
                 <select id="bunnri" type="text" name="進路志向" data-formrun-required>
                     <option value="">選択してください</option>
-                    <option value="1">わからない・まだ決めていない（迷っている）</option>
-                    <option value="2">理系</option>
-                    <option value="3">どちらかといえば理系</option>
-                    <option value="4">どちらでもない</option>
-                    <option value="5">どちらかといえば文系</option>
-                    <option value="6">文系</option>
+                    <option value="わからない・まだ決めていない（迷っている）">わからない・まだ決めていない（迷っている）</option>
+                    <option value="理系">理系</option>
+                    <option value="どちらかといえば理系">どちらかといえば理系</option>
+                    <option value="どちらでもない">どちらでもない</option>
+                    <option value="どちらかといえば文系">どちらかといえば文系</option>
+                    <option value="文系">文系</option>
                 </select>
                 <div class="error_text" data-formrun-show-if-error="進路志向">入力してください</div>
             </div>
@@ -396,9 +396,9 @@
                 </label>
                 <select name="メルマガ意向" data-formrun-required>
                     <option value="">選択してください</option>
-                    <option value="1">はい</option>
-                    <option value="2">いいえ</option>
-                    <option value="3">購読済み</option>
+                    <option value="はい">はい</option>
+                    <option value="いいえ">いいえ</option>
+                    <option value="購読済み">購読済み</option>
                 </select>
                 <div class="error_text" data-formrun-show-if-error="メルマガ意向">入力してください</div>
             </div>
