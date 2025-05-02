@@ -4,6 +4,7 @@ let selectedSchoolType = "high"; // 初期値は高等学校
 
 const suggestionList = document.getElementById('suggestionList');
 const codeInput = document.getElementById('schoolCode');
+const nameInput = document.getElementById('schoolName');
 const prefSelect = document.getElementById('prefSelect');
 const schoolTypeSelect = document.getElementById('schoolTypeSelect');
 const searchWord = document.getElementById('searchWord'); // inputの中身
@@ -26,6 +27,7 @@ fetch("data/schools2.json")
 function onSchoolTypeChange() {
     selectedSchoolType = schoolTypeSelect.value;
     codeInput.value = '';
+    nameInput.value = '';
 
     updatePlaceholder();
 }
@@ -33,6 +35,7 @@ function onSchoolTypeChange() {
 function onPrefChange() {
     selectedPrefCode = prefSelect.value;
     codeInput.value = '';
+    nameInput.value = '';
 
     updatePlaceholder();
 }
@@ -91,6 +94,7 @@ function showSuggestions(keyword) {
         li.style.listStyle = 'none';
         li.addEventListener('click', () => {
             codeInput.value = 'D999999999999';
+            nameInput.value = '自分の高校が見つからない';
             suggestionList.innerHTML = '';
             suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
         });
@@ -104,6 +108,7 @@ function showSuggestions(keyword) {
             li.style.listStyle = 'none';
             li.addEventListener('click', () => {
                 codeInput.value = school.code;
+                nameInput.value = school.name;
                 suggestionList.innerHTML = '';
                 suggestionList.setAttribute('data-placeholder', '所属する学校名を選択してください。');
             });

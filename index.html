@@ -175,9 +175,7 @@
                     都道府県を選択
                     <span class="required-badge">必須</span>
                 </label>
-                <select id="prefSelect" name="都道府県" data-formrun-required>
-                    <option value="">選択してください</option>
-                </select>
+                <select id="prefSelect" name="都道府県" data-formrun-required></select>
                 <div class="error_text" data-formrun-show-if-error="都道府県">入力してください</div>
             </div>
 
@@ -210,13 +208,23 @@
 
             <div class="form-group-input">
                 <label id="formLabel">
+                    学校名
+                    <span class="required-badge">必須</span>
+                </label>
+                <p class="description">上記の学校の種類、都道府県の選択をして、所属する学校名を検索してください。</p>
+                <input name="学校名" id="schoolName" type="text" readonly data-formrun-required>
+                <!-- <div class="error_text" data-formrun-show-if-error="学校名">入力してください</div> -->
+            </div>  
+
+            <div class="form-group-input">
+                <label id="formLabel">
                     学校コード
                     <span class="required-badge">必須</span>
                 </label>
 
                 <p class="description">上記の学校の種類、都道府県の選択をして、所属する学校の学校コードを検索してください。</p>
                 <input name="学校コード" id="schoolCode" type="text" readonly data-formrun-required>
-                <div class="error_text" data-formrun-show-if-error="学校コード">入力してください</div>
+                <!-- <div class="error_text" data-formrun-show-if-error="学校コード">入力してください</div> -->
             </div>  
 
             <!-- あなたは女性ですか？ -->
