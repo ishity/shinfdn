@@ -1,6 +1,6 @@
 // checkboxKikkake.js
 
-export function setupKikkakeCheckboxes(containerId, errorId, inputName = "きっかけ[]") {
+export function setupKikkakeCheckboxes(containerId, errorId, inputName = "あなたが当財団を知ったきっかけを教えてください（複数回答可）") {
     const container = document.getElementById(containerId);
     const errorElement = document.getElementById(errorId);
 
