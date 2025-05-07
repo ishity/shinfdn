@@ -1,6 +1,6 @@
-let schoolData = {};
+let schoolData = { high: {}, technical: {} };
 let selectedPrefCode = "";
-let selectedSchoolType = "";
+let selectedSchoolType = "high"; // 初期値は高等学校
 
 const suggestionList = document.getElementById('suggestionList');
 const codeInput = document.getElementById('schoolCode');
@@ -11,7 +11,7 @@ const searchWord = document.getElementById('searchWord'); // inputの中身
 const prefSearchButton = document.getElementById('prefSearch'); // 検索ボタン
 
 // 初期状態
-suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
+suggestionList.setAttribute('data-placeholder', '学校の種類と都道府県を選択してください。');
 
 // fetch 成功後にイベントリスナーを追加
 fetch("data/schools2.json")
@@ -20,7 +20,7 @@ fetch("data/schools2.json")
         schoolData = data;
         schoolTypeSelect.addEventListener('change', onSchoolTypeChange); 
         prefSelect.addEventListener('change', onPrefChange); 
-        prefSearchButton.addEventListener('click', onPrefSearchedPushed);
+        prefSearchButton.addEventListener('click', onPrefSearchedPushed); // ← change → click に修正
     })
     .catch(error => console.error('学校データの読み込みに失敗しました:', error));
 
@@ -28,30 +28,16 @@ function onSchoolTypeChange() {
     selectedSchoolType = schoolTypeSelect.value;
     codeInput.value = '';
     nameInput.value = '';
-    const keyword = searchWord.value.trim();
 
-    if (keyword) {
-        suggestionList.innerHTML = '';
-        suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
-        showSuggestions(keyword);
-    } else {
-        suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
-    }
+    updatePlaceholder();
 }
 
 function onPrefChange() {
     selectedPrefCode = prefSelect.value;
     codeInput.value = '';
     nameInput.value = '';
-    const keyword = searchWord.value.trim();
 
-    if (keyword) {
-        suggestionList.innerHTML = '';
-        suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
-        showSuggestions(keyword);
-    } else {
-        suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
-    }
+    updatePlaceholder();
 }
 
 function updatePlaceholder() {
@@ -69,13 +55,20 @@ function updatePlaceholder() {
 }
 
 function onPrefSearchedPushed() {
-    const keyword = searchWord.value.trim();
-    if (!keyword) {
+    if (!selectedSchoolType && !selectedPrefCode) {
         suggestionList.innerHTML = '';
-        suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
-        return;
-    }else{
+        suggestionList.setAttribute('data-placeholder', '学校の種類と都道府県を選択してください。');
+    } else if (!selectedPrefCode) {
+        suggestionList.innerHTML = '';
+        suggestionList.setAttribute('data-placeholder', '都道府県を選択してください。');
+    } else if (!selectedSchoolType) {
+        suggestionList.innerHTML = '';
+        suggestionList.setAttribute('data-placeholder', '学校の種類を選択してください。');
+    } else if (!searchWord.value.trim()) {
+        suggestionList.innerHTML = '';
         suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
+    } else {
+        const keyword = searchWord.value.trim();
         showSuggestions(keyword);
     }
 }
@@ -84,33 +77,16 @@ function showSuggestions(keyword) {
     suggestionList.innerHTML = '';
     suggestionList.removeAttribute('data-placeholder');
 
-    const results = [];
+    const schoolList = schoolData[selectedSchoolType][selectedPrefCode] || [];
 
-    // すべての種類、都道府県から検索
-    for (const [schoolTypeKey, prefs] of Object.entries(schoolData)) {
-        for (const [prefName, schools] of Object.entries(prefs)) {
-            schools.forEach(school => {
-                if (school.name.includes(keyword)) {
-                    results.push({
-                        ...school,
-                        type: schoolTypeKey,  // ← 学校種別を追加
-                        pref: prefName        // ← 都道府県名を追加
-                    });
-                }
-            });
-        }
-    }
+    const results = schoolList.filter(school =>
+        school.name.includes(keyword)
+    );
 
-    // 任意のフィルター（選択された場合）
-    const filteredResults = results.filter(school => {
-        const matchesType = selectedSchoolType ? school.type === selectedSchoolType : true;
-        const matchesPref = selectedPrefCode ? school.pref === selectedPrefCode : true;
-        return matchesType && matchesPref;
-    });
+    suggestionList.setAttribute('data-placeholder', '所属する学校名を選択してください。');
 
-    suggestionList.setAttribute('data-placeholder', '学校名を選択してください。');
-
-    if (filteredResults.length === 0) {
+    if (results.length === 0) {
+        // 「自分の高校が見つからない」選択肢
         const li = document.createElement('li');
         li.textContent = '自分の高校が見つからない';
         li.style.cursor = 'pointer';
@@ -124,9 +100,9 @@ function showSuggestions(keyword) {
         });
         suggestionList.appendChild(li);
     } else {
-        filteredResults.forEach(school => {
+        results.forEach(school => {
             const li = document.createElement('li');
-            li.textContent = `${school.name}`;
+            li.textContent = school.name;
             li.style.cursor = 'pointer';
             li.style.padding = '5px';
             li.style.listStyle = 'none';
@@ -140,4 +116,3 @@ function showSuggestions(keyword) {
         });
     }
 }
-

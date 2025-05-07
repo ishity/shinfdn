@@ -100,7 +100,7 @@
                     生年月日
                     <span class="required-badge">必須</span>
                 </label>
-                <input type="date" name="生年月日" data-formrun-required>
+                <input type="date" name="生年月日" data-formrun-required value="2009-01-01">
                 <div class="error_text" data-formrun-show-if-error="生年月日">入力してください</div>
             </div>
 
@@ -158,30 +158,8 @@
             <!-- 所属学校に関する情報を検索して入力して下さい -->
             <div class="form-group">
                 <label id="formLabel">
-                    学校の種類を選択
+                    高校名キーワード検索
                     <span class="required-badge">必須</span>
-                </label>
-                <select id="schoolTypeSelect" name="学校の種類" data-formrun-required>
-                    <option value="">選択してください</option>
-                    <option value="D1(高校)">高等学校（高校）</option>
-                    <option value="D2(中等)">中等教育学校（中高一貫校）</option>
-                    <option value="G1(高専)">高等専門学校（高専）</option>
-                </select>
-                <div class="error_text" data-formrun-show-if-error="学校の種類">入力してください</div>
-            </div>  
-
-            <div class="form-group">
-                <label id="formLabel">
-                    都道府県を選択
-                    <span class="required-badge">必須</span>
-                </label>
-                <select id="prefSelect" name="都道府県" data-formrun-required></select>
-                <div class="error_text" data-formrun-show-if-error="都道府県">入力してください</div>
-            </div>
-
-            <div class="form-group">
-                <label id="formLabel">
-                    高校名検索
                 </label>
                 <p class="description">
                     学校名を入力して、「検索」を押してください。部分検索もできます。
@@ -190,10 +168,33 @@
                 </p>
                 <div class="form-inline-name">
                     <div>
-                        <input type="text" id="searchWord" placeholder="学校名を入力" />
+                        <input type="text" id="searchWord" name="学校キーワード検索" placeholder="学校名を入力" />
                     </div>
-                    <button id="prefSearch" type="submit" data-formrun-submitting-text="送信中...">検索</button>
+                    <button id="prefSearch" type="button">検索</button>
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label id="formLabel">
+                    学校の種類を選択
+                    <span class="non-required-badge">任意</span>
+                </label>
+                <p class="description">さらに候補を絞りたい場合は入力してください。</p>
+                <select id="schoolTypeSelect" name="学校の種類" data-formrun-required>
+                    <option value="">選択してください</option>
+                    <option value="D1(高校)">高等学校（高校）</option>
+                    <option value="D2(中等)">中等教育学校（中高一貫校）</option>
+                    <option value="G1(高専)">高等専門学校（高専）</option>
+                </select>
+            </div>  
+
+            <div class="form-group">
+                <label id="formLabel">
+                    都道府県を選択
+                    <span class="non-required-badge">任意</span>
+                </label>
+                <p class="description">さらに候補を絞りたい場合は入力してください。</p>
+                <select id="prefSelect" name="都道府県" data-formrun-required></select>
             </div>
 
             <div class="form-group">
@@ -281,7 +282,7 @@
             <div class="form-group">
                 <label id="formLabel">
                     高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。
-                    <span class="required-badge">任意</span>
+                    <span class="required-badge">必須</span>
                 </label>
                 <p id="error-message" style="color: red; display: none;">最低1つは選択してください</p>
                 <div id="checkbox-container-hurdle">
@@ -337,7 +338,7 @@
             <div class="form-group">
                 <label id="formLabel">
                     その他、上記以外でハードルになっていることがあれば自由にお書きください。
-                    <span class="non-required-badge">必須</span>
+                    <span class="non-required-badge">任意</span>
                 </label>
                 <textarea class="form-control" id="text2" name="その他、上記以外でハードルになっていることがあれば自由にお書きください。" data-formrun-type="text"></textarea>
                 <p class="description">現在の文字数：<span class="charCount" data-for="text2">0</span></p>
