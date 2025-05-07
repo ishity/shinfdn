@@ -45,6 +45,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 //////////////////
 // setup the error check
-document.addEventListener('DOMContentLoaded', () => {
-    setupErrorCheck();
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     setupErrorCheck();
+// });

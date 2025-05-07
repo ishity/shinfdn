@@ -1,0 +1,39 @@
+function validateSelection() {
+            // 例: 選択がされているか確認する
+            // const prefecture = document.getElementById('prefSelect').value;
+            const nameSei = document.getElementById('sei').value;
+            const nameMei = document.getElementById('mei').value;
+            const kanaSei = document.getElementById('sei-kana').value;
+            const kanaMei = document.getElementById('mei-kana').value;
+            const email = document.getElementById('email').value;
+            const grade = document.getElementById('grade').value;
+            const birth = document.getElementById('birth').value;
+            const postalCode = document.getElementById('postal-code').value;
+            const prefecture = document.getElementById('prefecture').value;
+            const area = document.getElementById('area').value;
+            const banchi = document.getElementById('banchi').value;
+            const phoneNumber = document.getElementById('phone-number').value;
+            const schoolName = document.getElementById('school-name').value;
+            const schoolCode = document.getElementById('school-code').value;
+            const gender = document.getElementById('gender').value;
+            const text1 = document.getElementById('text1').value;
+            const interesting = document.getElementById('interesting').value;
+            const checkboxContainerHurdle = document.getElementById('checkbox-container-hurdle').value;
+            const text2 = document.getElementById('text2').value;
+            const bunnri = document.getElementById('bunnri').value;
+            const consent = document.getElementById('consent').value;
+            const scholarship = document.getElementById('scholarship').value;
+            const magazine = document.getElementById('magazine').value;
+
+            const values = [
+                nameSei, nameMei, kanaSei, kanaMei, email, grade, birth, postalCode, prefecture, area, banchi, phoneNumber, schoolName, schoolCode, gender, text1, interesting, checkboxContainerHurdle, text2, bunnri, consent, scholarship, magazine
+            ];
+
+            if (values.some(v => v !== '')) {
+                return false;
+            }
+
+            // フォーム送信（または次のステップ）
+            alert('送信準備完了！');
+            return true;
+        }

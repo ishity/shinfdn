@@ -100,7 +100,7 @@
                     生年月日
                     <span class="required-badge">必須</span>
                 </label>
-                <input type="date" name="生年月日" data-formrun-required value="2009-01-01">
+                <input type="date" id="birth" name="生年月日" data-formrun-required value="2009-01-01">
                 <div class="error_text" data-formrun-show-if-error="生年月日">入力してください</div>
             </div>
 
@@ -114,25 +114,25 @@
                 <div class="form-inline-postal">   
                     <div>
                         <label for="postal-code">郵便番号</label>
-                        <input type="text" name="郵便番号" placeholder="0123456" data-formrun-type="postal-code-jp" data-formrun-required>
+                        <input type="text" id="postal-code" name="郵便番号" placeholder="0123456" data-formrun-type="postal-code-jp" data-formrun-required>
                         <div class="error_text" data-formrun-show-if-error="郵便番号">入力してください</div>
                     </div>
                     <div>
                         <label for="prefecture">都道府県</label>
-                        <select name="都道府県" data-formrun-type="region prefecture-jp" data-formrun-required></select>
+                        <select name="都道府県" id="prefecture" data-formrun-type="region prefecture-jp" data-formrun-required></select>
                     </div>
                 </div>
                 <div class="form-inline-postal">
                     <div>
                         <label for="detail-address">市区町村</label>
-                        <input type="text" name="市区町村" data-formrun-type="locality street-address" data-formrun-required>
+                        <input type="text" id="area" name="市区町村" data-formrun-type="locality street-address" data-formrun-required>
                         <div class="error_text" data-formrun-show-if-error="市区町村">入力してください</div>
                     </div>
                 </div>
                 <div class="form-inline-postal">
                     <div>
                         <label for="detail-address2">番地</label>
-                        <input type="text" name="番地"  data-formrun-required>
+                        <input type="text" name="番地" id="banchi"  data-formrun-required>
                         <div class="error_text" data-formrun-show-if-error="番地">入力してください</div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                     <span class="required-badge">必須</span>
                 </label>
                 <p class="description">ハイフンありで記入してください。</p>
-                <input type="text" name="本人または保護者の電話番号" data-formrun-type="tel" placeholder="090-0123-4567" data-formrun-required>
+                <input type="text" id="phone-number" name="本人または保護者の電話番号" data-formrun-type="tel" placeholder="090-0123-4567" data-formrun-required>
                 <div class="error_text" data-formrun-show-if-error="本人または保護者の電話番号">入力してください</div>
             </div>
 
@@ -180,7 +180,7 @@
                     <span class="non-required-badge">任意</span>
                 </label>
                 <p class="description">さらに候補を絞りたい場合は入力してください。</p>
-                <select id="schoolTypeSelect" name="学校の種類" data-formrun-required>
+                <select id="schoolTypeSelect" name="学校の種類">
                     <option value="">選択してください</option>
                     <option value="D1(高校)">高等学校（高校）</option>
                     <option value="D2(中等)">中等教育学校（中高一貫校）</option>
@@ -194,7 +194,7 @@
                     <span class="non-required-badge">任意</span>
                 </label>
                 <p class="description">さらに候補を絞りたい場合は入力してください。</p>
-                <select id="prefSelect" name="都道府県" data-formrun-required></select>
+                <select id="prefSelect" name="都道府県"></select>
             </div>
 
             <div class="form-group">
@@ -213,7 +213,7 @@
                     <span class="required-badge">必須</span>
                 </label>
                 <p class="description">上記の学校の種類、都道府県の選択をして、所属する学校名を検索してください。</p>
-                <input name="学校名" id="schoolName" type="text" readonly data-formrun-required>
+                <input name="学校名" id="school-name" type="text" readonly data-formrun-required>
                 <!-- <div class="error_text" data-formrun-show-if-error="学校名">入力してください</div> -->
             </div>  
 
@@ -224,7 +224,7 @@
                 </label>
 
                 <p class="description">上記の学校の種類、都道府県の選択をして、所属する学校の学校コードを検索してください。</p>
-                <input name="学校コード" id="schoolCode" type="text" readonly data-formrun-required>
+                <input name="学校コード" id="school-code" type="text" readonly data-formrun-required>
                 <!-- <div class="error_text" data-formrun-show-if-error="学校コード">入力してください</div> -->
             </div>  
 
@@ -235,7 +235,7 @@
                     <span class="required-badge">必須</span>
                 </label>
                 <div class="checkbox-wrapper">
-                    <input type="checkbox" value="はい" name="あなたは女性ですか？" data-formrun-required>
+                    <input type="checkbox" id="gender" value="はい" name="あなたは女性ですか？" data-formrun-required>
                     <label for="あなたは女性ですか？">はい</label>
                 </div>
                 <div class="error_text" data-formrun-show-if-error="あなたは女性ですか？">入力してください</div>
@@ -259,7 +259,7 @@
                     あなたが最も興味のある分野を1つお選びください。（あくまで現時点で関心を持っているものをお選び頂く形であり、将来変更になっても選考や給付への影響はありません。）
                     <span class="required-badge">必須</span>
                 </label>
-                <select name="あなたが最も興味のある分野を1つお選びください。（あくまで現時点で関心を持っているものをお選び頂く形であり、将来変更になっても選考や給付への影響はありません。）" data-formrun-required>
+                <select name="あなたが最も興味のある分野を1つお選びください。（あくまで現時点で関心を持っているものをお選び頂く形であり、将来変更になっても選考や給付への影響はありません。）" id="interesting" data-formrun-required>
                     <option value="">選択してください</option>
                     <option value="まだ決まっていない/検討中である">まだ決まっていない/検討中である</option>
                     <option value="素材、物質などの研究開発に関わる、化学分野">素材、物質などの研究開発に関わる、化学分野</option>
@@ -378,7 +378,7 @@
                     <span class="required-badge">必須</span>
                 </label>
                 <div class="checkbox-wrapper">
-                    <input type="checkbox" name="今回のご応募にあたって、保護者の同意を得ていますか。" value="保護者の同意" data-formrun-required>
+                    <input type="checkbox" id="consent" name="今回のご応募にあたって、保護者の同意を得ていますか。" value="保護者の同意" data-formrun-required>
                     <label for="kyufu">はい</label>
                 </div>
                 <div class="error_text" data-formrun-show-if-error="保護者の同意">入力してください</div>
@@ -391,7 +391,7 @@
                     <span class="required-badge">必須</span>
                 </label>
                 <div class="checkbox-wrapper">
-                    <input type="checkbox" name="過去に山田進太郎D&I財団の奨学金、奨学助成金の給付は受けていないですか？" value="奨学助成金の給付の有無" data-formrun-required>
+                    <input type="checkbox" id="scholarship" name="過去に山田進太郎D&I財団の奨学金、奨学助成金の給付は受けていないですか？" value="奨学助成金の給付の有無" data-formrun-required>
                     <label for="kyufu">はい</label>
                 </div>
                 <div class="error_text" data-formrun-show-if-error="奨学助成金の給付の有無">入力してください</div>
@@ -403,7 +403,7 @@
                     山田進太郎D&I財団がお送りする各種無料メルマガ（STEM分野に興味がある女子向けイベント情報等）の購読を希望しますか？
                     <span class="required-badge">必須</span>
                 </label>
-                <select name="山田進太郎D&I財団がお送りする各種無料メルマガ（STEM分野に興味がある女子向けイベント情報等）の購読を希望しますか？" data-formrun-required>
+                <select name="山田進太郎D&I財団がお送りする各種無料メルマガ（STEM分野に興味がある女子向けイベント情報等）の購読を希望しますか？" id="magazine" data-formrun-required>
                     <option value="">選択してください</option>
                     <option value="はい">はい</option>
                     <option value="いいえ">いいえ</option>
@@ -440,5 +440,22 @@
 
     <script type="module" src="main.js"></script>
     <script src="js/schoolNameResearch.js"></script>
+    <script>
+        document.querySelector('form.formrun').addEventListener('submit', function (e) {
+            // 少し待ってエラーが出た後の状態をチェック（Formrunは非同期でエラー表示）
+            setTimeout(() => {
+                const firstError = document.querySelector('[data-formrun-show-if-error]:not([style*="display: none"])');
+                if (firstError) {
+                    // スクロールする
+                    const parent = firstError.closest('.form-group, .form-group-input, .form-group-birth');
+                    if (parent) {
+                        parent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            }, 200); // 200msくらいがちょうど良いです（Formrunの処理後）
+        });
+    </script>   
 </body>
 </html>
