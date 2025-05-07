@@ -2,6 +2,7 @@ import { prefectures_file, populatePrefectures } from './js/prefecture.js';
 import { setupCharCounter } from './js/charCount.js';
 import { setupCheckboxLimit, validateSelection } from './js/checkboxHandler.js';
 import { setupKikkakeCheckboxes } from './js/checkboxKikkake.js';
+import { setupErrorCheck } from './js/errorCheck.js';
 
 //////////////////
 // fetch prefecture from the data
@@ -40,4 +41,10 @@ window.addEventListener('DOMContentLoaded', () => {
 // setup the kikkake checkbox limit and validation
 window.addEventListener('DOMContentLoaded', () => {
     setupKikkakeCheckboxes('checkbox-container-kikkake', 'checkbox-error');
+});
+
+//////////////////
+// setup the error check
+document.addEventListener('DOMContentLoaded', () => {
+    setupErrorCheck();
 });
