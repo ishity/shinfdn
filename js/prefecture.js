@@ -12,10 +12,25 @@ export function populatePrefectures(data) {
     }
 
     const select = document.getElementById("prefSelect");
-    [...prefectures].sort().forEach(pref => {
+    select.innerHTML = ""; // 念のため初期化
+
+    // 都道府県の選択肢をソートして取得
+    const sortedPrefectures = [...prefectures].sort();
+
+    // プレースホルダーオプションを最初に追加
+    const placeholderOption = document.createElement("option");
+    placeholderOption.value = "";
+    placeholderOption.textContent = "都道府県を選択";
+    placeholderOption.disabled = true;
+    placeholderOption.selected = true;
+    select.appendChild(placeholderOption);
+
+    // 都道府県の選択肢を順に追加
+    sortedPrefectures.forEach(pref => {
         const option = document.createElement("option");
         option.value = pref;
         option.textContent = pref;
         select.appendChild(option);
     });
 }
+
