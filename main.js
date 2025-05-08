@@ -3,6 +3,7 @@ import { setupCharCounter } from './js/charCount.js';
 import { setupCheckboxLimit, validateSelection } from './js/checkboxHandler.js';
 import { setupKikkakeCheckboxes } from './js/checkboxKikkake.js';
 import { setupErrorCheck } from './js/errorCheck.js';
+import { autofillEmailFromURL, autofillSecretIDFromURL } from './js/setParams.js';
 
 //////////////////
 // fetch prefecture from the data
@@ -43,8 +44,10 @@ window.addEventListener('DOMContentLoaded', () => {
     setupKikkakeCheckboxes('checkbox-container-kikkake', 'checkbox-error');
 });
 
+
 //////////////////
-// setup the error check
-// document.addEventListener('DOMContentLoaded', () => {
-//     setupErrorCheck();
-// });
+// set email and secretID from URL
+window.addEventListener('DOMContentLoaded', () => {
+    autofillEmailFromURL();
+    autofillSecretIDFromURL();
+});

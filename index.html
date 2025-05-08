@@ -78,6 +78,9 @@
                 <div class="error_text" data-formrun-show-if-error="メールアドレス">有効なメールアドレスを入力してください</div>
             </div>
 
+            <!-- プレエントリーID （非公開URL） -->
+            <input id="secretID" name="プレエントリーID" type="hidden" data-formrun-required>
+
             <!-- 学年 -->
             <div class="form-group">
                 <label for="grade" id="formLabel">
@@ -439,23 +442,6 @@
     </div>
 
     <script type="module" src="main.js"></script>
-    <script src="js/schoolNameResearch.js"></script>
-    <script>
-        document.querySelector('form.formrun').addEventListener('submit', function (e) {
-            // 少し待ってエラーが出た後の状態をチェック（Formrunは非同期でエラー表示）
-            setTimeout(() => {
-                const firstError = document.querySelector('[data-formrun-show-if-error]:not([style*="display: none"])');
-                if (firstError) {
-                    // スクロールする
-                    const parent = firstError.closest('.form-group, .form-group-input, .form-group-birth');
-                    if (parent) {
-                        parent.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    } else {
-                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                }
-            }, 200); // 200msくらいがちょうど良いです（Formrunの処理後）
-        });
-    </script>   
+    <script src="js/schoolNameResearch.js"></script> 
 </body>
 </html>
