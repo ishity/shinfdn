@@ -114,6 +114,11 @@ label#formLabel {
     margin-bottom: 3rem;
 }
 
+.form-group-school-code {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 /* テキストインプットのデザイン */
 .form-group-input {
     margin-top: 3rem;
@@ -238,7 +243,7 @@ button#formSubmit, input[type="submit"] {
 }
 
 /* 学校名検索ボタン */
-button#prefSearch, input[type="submit"] {
+button#kensaku, input[type="submit"] {
     background-color: #009688;
     color: white;
     border: none;

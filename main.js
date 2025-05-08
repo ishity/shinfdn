@@ -41,15 +41,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
 //////////////////
 // setup the hurdle checkbox limit and validation
-// window.addEventListener('DOMContentLoaded', () => {
-//     setupCheckboxLimit('checkbox-container-hurdle');
+window.addEventListener('DOMContentLoaded', () => {
+    setupCheckboxLimit('checkbox-container-hurdle');
 
-//     // 例: ボタンがクリックされたときに validateSelection を実行
-//     const submitButton = document.getElementById('submit-button');
-//     if (submitButton) {
-//         submitButton.addEventListener('click', (e) => {
-//             e.preventDefault();
-//             validateSelection();
-//         });
-//     }
-// });
+    // 例: ボタンがクリックされたときに validateSelection を実行
+    const submitButton = document.getElementById('submit-button');
+    if (submitButton) {
+        submitButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            validateSelection();
+        });
+    }
+});

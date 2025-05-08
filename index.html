@@ -158,80 +158,58 @@
                 <div class="error_text" data-formrun-show-if-error="本人または保護者の電話番号">入力してください</div>
             </div>
 
-            <!-- 所属学校に関する情報を検索して入力して下さい -->
             <div class="form-group">
                 <label id="formLabel">
-                    高校名キーワード検索
+                    学校情報
                     <span class="required-badge">必須</span>
                 </label>
-                <p class="description">
-                    学校名を入力して、「検索」を押してください。部分検索もできます。
-                    <br>例）「やまだ進太郎高校」の方の場合
-                    <br>　　「やまだ進太郎高校」「やまだ」「進太郎」で検索
-                </p>
-                <div class="form-inline-name">
-                    <div>
-                        <input type="text" id="searchWord" name="学校キーワード検索" placeholder="学校名を入力" />
-                    </div>
-                    <button id="prefSearch" type="button">検索</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label id="formLabel">
-                    高校名検索
-                </label>
-                <div id="kanaList" style="margin-bottom: 10px; flex-wrap: wrap; display: flex; gap: 5px;"></div>
-                <ul id="suggestionList" style="border: 0.5px solid #ccc; max-height: 210px; overflow-y: auto; padding: 0;"></ul>
 
                 <p id="whenSchoolNotFound" class="description">
                     自分の学校名が見つからない場合は、キーワードを短くして検索したり、正しい学校名かどうかを検索したりしてください。上記を行っても見つからない場合は、 <a href="https://www.shinfdn.org/contact" target="_blank" rel="noopener noreferrer">こちら</a> からお問い合わせください。
                 </p>
+
+                <div class="form-inline-name">
+                    <div>
+                        <input type="text" id="searchWord" name="学校キーワード検索" placeholder="「やまだ進太郎高校」→「やまだ」「進太郎」で検索" />
+                    </div>
+                    <button id="kensaku" type="button">検索</button>
+                </div>
+
+                <ul id="suggestionList" style="border: 0.5px solid #ccc; max-height: 210px; overflow-y: auto; padding: 0;"></ul>
+
+                <div class="form-inline-name">
+                    <div>
+                        <label for="sei">学校コード</label>
+                        <input name="学校コード" id="schoolCode" type="text" readonly data-formrun-required>
+                    </div>
+                    <div>
+                        <label for="mei">学校名</label>
+                        <input name="学校名" id="schoolName" type="text" readonly data-formrun-required>
+                    </div>
+                </div>
+
+                <div class="form-group-school-code">
+                    <p class="description">さらに候補を絞りたい場合は、下記を選択してください。</p>
+                    <div class="form-group-school-code">
+                        <label id="formLabel">
+                            学校の種類を選択
+                        </label>
+                        <select id="schoolTypeSelect" name="学校の種類">
+                            <option value="">選択してください</option>
+                            <option value="D1(高校)">高等学校（高校）</option>
+                            <option value="D2(中等)">中等教育学校（中高一貫校）</option>
+                            <option value="G1(高専)">高等専門学校（高専）</option>
+                        </select>
+                    </div>  
+        
+                    <div class="form-group-school-code">
+                        <label id="formLabel">
+                            都道府県を選択
+                        </label>
+                        <select id="prefSelect" name="都道府県"></select>
+                    </div>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label id="formLabel">
-                    学校の種類を選択
-                    <span class="non-required-badge">任意</span>
-                </label>
-                <p class="description">さらに候補を絞りたい場合は入力してください。</p>
-                <select id="schoolTypeSelect" name="学校の種類">
-                    <option value="">選択してください</option>
-                    <option value="D1(高校)">高等学校（高校）</option>
-                    <option value="D2(中等)">中等教育学校（中高一貫校）</option>
-                    <option value="G1(高専)">高等専門学校（高専）</option>
-                </select>
-            </div>  
-
-            <div class="form-group">
-                <label id="formLabel">
-                    都道府県を選択
-                    <span class="non-required-badge">任意</span>
-                </label>
-                <p class="description">さらに候補を絞りたい場合は入力してください。</p>
-                <select id="prefSelect" name="都道府県"></select>
-            </div>
-
-            <div class="form-group-input">
-                <label id="formLabel">
-                    学校名
-                    <span class="required-badge">必須</span>
-                </label>
-                <p class="description">上記の学校の種類、都道府県の選択をして、所属する学校名を検索してください。</p>
-                <input name="学校名" id="school-name" type="text" readonly data-formrun-required>
-                <!-- <div class="error_text" data-formrun-show-if-error="学校名">入力してください</div> -->
-            </div>  
-
-            <div class="form-group-input">
-                <label id="formLabel">
-                    学校コード
-                    <span class="required-badge">必須</span>
-                </label>
-
-                <p class="description">上記の学校の種類、都道府県の選択をして、所属する学校の学校コードを検索してください。</p>
-                <input name="学校コード" id="school-code" type="text" readonly data-formrun-required>
-                <!-- <div class="error_text" data-formrun-show-if-error="学校コード">入力してください</div> -->
-            </div>  
 
             <!-- あなたは女性ですか？ -->
             <div class="form-group">
@@ -398,6 +376,6 @@
     </div>
 
     <script type="module" src="./main.js"></script>
-    <script src="js/schoolNameResearch.js"></script> 
+    <script src="./js/schoolNameResearch.js"></script> 
 </body>
 </html>

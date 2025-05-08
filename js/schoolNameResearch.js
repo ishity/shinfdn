@@ -8,10 +8,10 @@ const nameInput = document.getElementById('schoolName');
 const prefSelect = document.getElementById('prefSelect');
 const schoolTypeSelect = document.getElementById('schoolTypeSelect');
 const searchWord = document.getElementById('searchWord'); // inputの中身
-const prefSearchButton = document.getElementById('prefSearch'); // 検索ボタン
+const kensakuButton = document.getElementById('kensaku'); // 検索ボタン
 
 // 初期状態
-suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
+suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
 
 // fetch 成功後にイベントリスナーを追加
 fetch("data/schools2.json")
@@ -20,7 +20,8 @@ fetch("data/schools2.json")
         schoolData = data;
         schoolTypeSelect.addEventListener('change', onSchoolTypeChange); 
         prefSelect.addEventListener('change', onPrefChange); 
-        prefSearchButton.addEventListener('click', onPrefSearchedPushed);
+        kensakuButton.addEventListener('click', onPrefSearchedPushed);
+        suggestionList.addEventListener('click', );
     })
     .catch(error => console.error('学校データの読み込みに失敗しました:', error));
 
@@ -32,10 +33,10 @@ function onSchoolTypeChange() {
 
     if (keyword) {
         suggestionList.innerHTML = '';
-        suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
+        suggestionList.setAttribute('data-placeholder', '検索結果');
         showSuggestions(keyword);
     } else {
-        suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
+        suggestionList.setAttribute('data-placeholder', '検索結果');
     }
 }
 
@@ -47,10 +48,22 @@ function onPrefChange() {
 
     if (keyword) {
         suggestionList.innerHTML = '';
-        suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
+        suggestionList.setAttribute('data-placeholder', '検索結果');
         showSuggestions(keyword);
     } else {
-        suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
+        suggestionList.setAttribute('data-placeholder', '検索結果');
+    }
+}
+
+function onPrefSearchedPushed() {
+    const keyword = searchWord.value.trim();
+    if (!keyword) {
+        suggestionList.innerHTML = '';
+        suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
+        return;
+    }else{
+        suggestionList.setAttribute('data-placeholder', '検索結果');
+        showSuggestions(keyword);
     }
 }
 
@@ -64,19 +77,7 @@ function updatePlaceholder() {
     } else if (!selectedPrefCode) {
         suggestionList.setAttribute('data-placeholder', '都道府県を選択してください。');
     } else {
-        suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
-    }
-}
-
-function onPrefSearchedPushed() {
-    const keyword = searchWord.value.trim();
-    if (!keyword) {
-        suggestionList.innerHTML = '';
-        suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
-        return;
-    }else{
-        suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
-        showSuggestions(keyword);
+        suggestionList.setAttribute('data-placeholder', '検索結果');
     }
 }
 
@@ -120,7 +121,7 @@ function showSuggestions(keyword) {
             codeInput.value = 'D999999999999';
             nameInput.value = '自分の高校が見つからない';
             suggestionList.innerHTML = '';
-            suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
+            suggestionList.setAttribute('data-placeholder', '検索結果');
         });
         suggestionList.appendChild(li);
     } else {

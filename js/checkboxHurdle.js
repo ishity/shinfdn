@@ -15,7 +15,7 @@ export function setupHurdleCheckboxes(containerId, errorId, inputName = "高校�
         "就職先のイメージがわいておらず、理系に進むことに不安があること",
         "親が文系大学進学のためイメージがわきづらいこと",
         "親が大学進学していないためイメージがわきづらいこと"
-    ]
+    ];
     
     const otherItem = "ハードルは特にない";
 
@@ -54,30 +54,39 @@ export function setupHurdleCheckboxes(containerId, errorId, inputName = "高校�
     // その他を最後に追加
     container.appendChild(createCheckbox(otherItem, items.length));
 
-    // フォーム変更時のバリデーション
-    const otherCheckbox = document.querySelector(`input[value="${otherItem}"]`);
+    const form = document.querySelector("form");
+    const checkboxes = Array.from(document.querySelectorAll(`input[name="${inputName}"]`));
+    const otherCheckbox = checkboxes.find(cb => cb.value === otherItem);
+
+    // チェック状態変更時の制御ロジック
     form.addEventListener("change", () => {
-        const checkboxes = Array.from(document.querySelectorAll(`input[name="${inputName}"]`));
         const checked = checkboxes.filter(cb => cb.checked);
-        
+        const otherChecked = otherCheckbox.checked;
+
         checkboxes.forEach(cb => {
-            // 他がチェックされていて「特にない」が含まれている場合、排他的に制御
-            if (otherCheckbox.checked && cb !== otherCheckbox) {
-                cb.disabled = true;
-            } else if (checked.length >= 3 && !cb.checked) {
-                cb.disabled = true;
+            if (otherChecked) {
+                if (cb !== otherCheckbox) {
+                    cb.checked = false;
+                    cb.disabled = true;
+                } else {
+                    cb.disabled = false;
+                }
             } else {
-                cb.disabled = false;
+                if (cb !== otherCheckbox) {
+                    cb.disabled = (checked.length >= 3 && !cb.checked);
+                } else {
+                    cb.disabled = (checked.length > 0);
+                    if (cb.checked && checked.length > 1) {
+                        cb.checked = false;
+                    }
+                }
             }
         });
     });
 
-
     // フォーム送信時のバリデーション
-    const form = document.querySelector("form");
     form.addEventListener("submit", function (e) {
-        const checkboxes = document.querySelectorAll(`input[name="${inputName}"]`);
-        const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+        const anyChecked = checkboxes.some(cb => cb.checked);
         if (!anyChecked) {
             e.preventDefault();
             errorElement.style.display = "block";

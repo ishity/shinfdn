@@ -40,58 +40,41 @@ function validateSelection() {
 
 
 
-
 <div class="form-group">
                 <label id="formLabel">
-                    高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。
+                    高校名検索
+                </label>
+                <div id="kanaList" style="margin-bottom: 10px; flex-wrap: wrap; display: flex; gap: 5px;"></div>
+                <ul id="suggestionList" style="border: 0.5px solid #ccc; max-height: 210px; overflow-y: auto; padding: 0;"></ul>
+
+                <p id="whenSchoolNotFound" class="description">
+                    自分の学校名が見つからない場合は、キーワードを短くして検索したり、正しい学校名かどうかを検索したりしてください。上記を行っても見つからない場合は、 <a href="https://www.shinfdn.org/contact" target="_blank" rel="noopener noreferrer">こちら</a> からお問い合わせください。
+                </p>
+            </div>
+
+
+<!-- 所属学校に関する情報を検索して入力して下さい -->
+            <!-- <div class="form-group">
+                <label id="formLabel">
+                    高校名キーワード検索
                     <span class="required-badge">必須</span>
                 </label>
-                <p id="error-message" style="color: red; display: none;">最低1つは選択してください</p>
-                <div id="checkbox-container-hurdle">
-                    <!-- チェックボックス群（JSでランダムに並び替え） -->
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option1" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="1">
-                        <label for="option1">ハードルは特にない</label>
+                <p class="description">
+                    学校名を入力して、「検索」を押してください。部分検索もできます。
+                    <br>例）「やまだ進太郎高校」の方の場合
+                    <br>　　「やまだ進太郎高校」「やまだ」「進太郎」で検索
+                </p>
+                <div class="form-inline-name">
+                    <div>
+                        <input type="text" id="searchWord" name="学校キーワード検索" placeholder="学校名を入力" />
                     </div>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option2" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="2">
-                        <label for="option2">理数系科目の成績が伸び悩んでいること</label>
-                    </div>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option3" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="3">
-                        <label for="option3">先生や知人、友人、先輩など親以外の第3者から理系以外の分野への進学を勧められていること</label>
-                    </div>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option4" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="4">
-                        <label for="option4">親が大学進学していないためイメージがわきづらいこと</label>
-                    </div>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option5" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="5">
-                        <label for="option5">親が文系大学進学のためイメージがわきづらいこと</label>
-                    </div>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option6" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="6">
-                        <label for="option6">親戚、家族などに理系や進みたい分野に進学することを反対されていること</label>
-                    </div>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option7" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="7">
-                        <label for="option7">理系に進学するための学費が十分にないこと</label>
-                    </div>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option8" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="8">
-                        <label for="option8">周囲に理系に進んだ先輩や進みたい同級生がおらず、情報が少ないこと</label>
-                    </div>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option9" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="9">
-                        <label for="option9">居住地の地理的な環境（島嶼部、山間地など）で、何をするにも交通費がかかること</label>
-                    </div>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option10" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="10">
-                        <label for="option10">就職先のイメージがわいておらず、理系に進むことに不安があること</label>
-                    </div>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="option11" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="11">
-                        <label for="option11">自分が何をやりたいのか将来像がまだ明確になっていないこと</label>
-                    </div>
+                    <button id="prefSearch" type="button">検索</button>
                 </div>
-            </div>
+
+                <div id="kanaList" style="margin-bottom: 10px; flex-wrap: wrap; display: flex; gap: 5px;"></div>
+                <ul id="suggestionList" style="border: 0.5px solid #ccc; max-height: 210px; overflow-y: auto; padding: 0;"></ul>
+
+                <p id="whenSchoolNotFound">
+                    自分の学校名が見つからない場合は、キーワードを短くして検索したり、正しい学校名かどうかを検索したりしてください。上記を行っても見つからない場合は、 <a href="https://www.shinfdn.org/contact" target="_blank" rel="noopener noreferrer">こちら</a> からお問い合わせください。
+                </p>
+            </div> -->
