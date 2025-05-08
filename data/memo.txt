@@ -37,3 +37,61 @@ function validateSelection() {
             alert('送信準備完了！');
             return true;
         }
+
+
+
+
+<div class="form-group">
+                <label id="formLabel">
+                    高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。
+                    <span class="required-badge">必須</span>
+                </label>
+                <p id="error-message" style="color: red; display: none;">最低1つは選択してください</p>
+                <div id="checkbox-container-hurdle">
+                    <!-- チェックボックス群（JSでランダムに並び替え） -->
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="option1" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="1">
+                        <label for="option1">ハードルは特にない</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="option2" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="2">
+                        <label for="option2">理数系科目の成績が伸び悩んでいること</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="option3" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="3">
+                        <label for="option3">先生や知人、友人、先輩など親以外の第3者から理系以外の分野への進学を勧められていること</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="option4" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="4">
+                        <label for="option4">親が大学進学していないためイメージがわきづらいこと</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="option5" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="5">
+                        <label for="option5">親が文系大学進学のためイメージがわきづらいこと</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="option6" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="6">
+                        <label for="option6">親戚、家族などに理系や進みたい分野に進学することを反対されていること</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="option7" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="7">
+                        <label for="option7">理系に進学するための学費が十分にないこと</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="option8" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="8">
+                        <label for="option8">周囲に理系に進んだ先輩や進みたい同級生がおらず、情報が少ないこと</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="option9" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="9">
+                        <label for="option9">居住地の地理的な環境（島嶼部、山間地など）で、何をするにも交通費がかかること</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="option10" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="10">
+                        <label for="option10">就職先のイメージがわいておらず、理系に進むことに不安があること</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="option11" name="高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。" value="11">
+                        <label for="option11">自分が何をやりたいのか将来像がまだ明確になっていないこと</label>
+                    </div>
+                </div>
+            </div>
