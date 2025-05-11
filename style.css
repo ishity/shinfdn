@@ -131,6 +131,12 @@ label#formLabel {
     margin-bottom: 3rem;
 }
 
+/* テキストインプットのデザイン */
+.form-group-input {
+    max-width: 525px;
+    min-width: 150px; 
+}
+
 .form-group-school-code {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -139,22 +145,6 @@ label#formLabel {
 .form-group-school-code-sub {
     margin-top: 1rem;
     margin-bottom: 1rem;
-}
-
-/* テキストインプットのデザイン */
-.form-group-input {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    max-width: 525px;
-    min-width: 150px; 
-}
-
-/* 生年月日入力欄のデザイン */
-.form-group-birth {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    max-width: 525px;
-    min-width: 150px; 
 }
 /* ==========Form Group Design End========== */
 
@@ -176,14 +166,6 @@ label#formLabel {
     border-radius: 4px;
     font-size: 1rem;
     box-sizing: border-box;
-}
-
-.form-inline-name input::placeholder {
-    font-size: 0.8rem;
-}
-
-.kensaku-input{
-    margin-top: 2rem;
 }
 
 /* 共通：フォームのインライングループ */
@@ -208,6 +190,31 @@ label#formLabel {
     font-size: 1rem;
     box-sizing: border-box;
 }
+
+
+.form-inline-kensaku {
+    display: flex;
+    gap: 1rem;
+    /* margin-top: 2rem; */
+}
+
+.form-inline-kensaku > div {
+    flex: 1;
+}
+
+.form-inline-kensaku input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-inline-kensaku input::placeholder {
+    font-size: 0.8rem;
+}
+
 /* ==========Form Inline Design End========== */
 
 

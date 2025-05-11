@@ -57,6 +57,7 @@ function onPrefChange() {
 
 function onPrefSearchedPushed() {
     const keyword = searchWord.value.trim();
+    
     if (!keyword) {
         suggestionList.innerHTML = '';
         suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
@@ -65,6 +66,9 @@ function onPrefSearchedPushed() {
         suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
         showSuggestions(keyword);
     }
+
+    // 入力内容を削除する
+    searchWord.value = '';
 }
 
 function showSuggestions(keyword) {

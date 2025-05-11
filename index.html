@@ -35,12 +35,12 @@
                 </label>
                 <div class="form-inline-name">
                     <div>
-                        <label for="sei">姓</label>
+                        <label>姓</label>
                         <input id="sei" name="姓" type="text" placeholder="山田" data-formrun-required>
                         <div class="error_text" data-formrun-show-if-error="姓">入力してください</div>
                     </div>
                     <div>
-                        <label for="mei">名</label>
+                        <label>名</label>
                         <input id="mei" name="名" type="text" placeholder="葵" data-formrun-required>
                         <div class="error_text" data-formrun-show-if-error="名">入力してください</div>
                     </div>
@@ -55,12 +55,12 @@
                 </label>
                 <div class="form-inline-name">
                     <div>
-                        <label for="sei-kana">セイ</label>
+                        <label>セイ</label>
                         <input id="sei-kana" name="セイ" type="text" placeholder="ヤマダ" data-formrun-required>
                         <div class="error_text" data-formrun-show-if-error="セイ">全角カタカナで入力してください</div>
                     </div>
                     <div>
-                        <label for="mei-kana">メイ</label>
+                        <label>メイ</label>
                         <input id="mei-kana" name="メイ" type="text" placeholder="アオイ" data-formrun-required>
                         <div class="error_text" data-formrun-show-if-error="メイ">全角カタカナで入力してください</div>
                     </div>
@@ -68,14 +68,16 @@
             </div>
         
             <!-- メールアドレス -->
-            <div class="form-group-input">
-                <label for="email" id="formLabel">
-                    登録済みメールアドレス（変更不可）
-                    <span class="required-badge">必須</span>
-                </label>
-                <p class="description">本申し込みフォームのご案内をお送りしましたこちらのメールアドレスに、申し込み後の完了メールおよび、2025年2月中旬頃に選考結果が届きます。申し込み完了メールの受信を必ずご確認ください。1つのメールアドレスにつき1人のみ応募いただけます。姉妹などで応募頂く場合は別々のメールアドレスでのご登録をお願いします。</p>
-                <input id="email" name="メールアドレス" type="text" placeholder="example@mail.com" data-formrun-type="email" data-formrun-required>
-                <div class="error_text" data-formrun-show-if-error="メールアドレス">有効なメールアドレスを入力してください</div>
+            <div class="form-group">
+                <div class="form-group-input">
+                    <label id="formLabel">
+                        登録済みメールアドレス（変更不可）
+                        <span class="required-badge">必須</span>
+                    </label>
+                    <p class="description">本申し込みフォームのご案内をお送りしましたこちらのメールアドレスに、申し込み後の完了メールおよび、2025年2月中旬頃に選考結果が届きます。申し込み完了メールの受信を必ずご確認ください。1つのメールアドレスにつき1人のみ応募いただけます。姉妹などで応募頂く場合は別々のメールアドレスでのご登録をお願いします。</p>
+                    <input id="email" name="メールアドレス" type="text" placeholder="example@mail.com" data-formrun-type="email" data-formrun-required>
+                    <div class="error_text" data-formrun-show-if-error="メールアドレス">有効なメールアドレスを入力してください</div>
+                </div>
             </div>
 
             <!-- プレエントリーID （非公開URL） -->
@@ -83,7 +85,7 @@
 
             <!-- 学年 -->
             <div class="form-group">
-                <label for="grade" id="formLabel">
+                <label id="formLabel">
                     現在の学年
                     <span class="required-badge">必須</span>
                 </label>
@@ -98,13 +100,15 @@
             </div>
 
             <!-- 生年月日 -->
-            <div class="form-group-birth">
-                <label for="birth" id="formLabel">
-                    生年月日
-                    <span class="required-badge">必須</span>
-                </label>
-                <input type="date" id="birth" name="生年月日" data-formrun-required value="2009-01-01">
-                <div class="error_text" data-formrun-show-if-error="生年月日">入力してください</div>
+            <div class="form-group">
+                <div class="form-group-input">
+                    <label id="formLabel">
+                        生年月日
+                        <span class="required-badge">必須</span>
+                    </label>
+                    <input type="date" id="birth" name="生年月日" data-formrun-required value="2009-01-01">
+                    <div class="error_text" data-formrun-show-if-error="生年月日">入力してください</div>
+                </div>
             </div>
 
             <!-- 住所 -->
@@ -116,46 +120,49 @@
                 <p class="description">郵便番号（ハイフンなし）を入力すると自動補完されます</p>
                 <div class="form-inline-postal">   
                     <div>
-                        <label for="postal-code">郵便番号</label>
+                        <label>郵便番号</label>
                         <input type="text" id="postal-code" name="郵便番号" placeholder="0123456" data-formrun-type="postal-code-jp" data-formrun-required>
                         <div class="error_text" data-formrun-show-if-error="郵便番号">入力してください</div>
                     </div>
                     <div>
-                        <label for="prefecture">都道府県</label>
+                        <label>都道府県</label>
                         <select name="都道府県" id="prefecture" data-formrun-type="region prefecture-jp" data-formrun-required></select>
+                        <div class="error_text" data-formrun-show-if-error="都道府県">入力してください</div>
                     </div>
                 </div>
                 <div class="form-inline-postal">
                     <div>
-                        <label for="detail-address">市区町村</label>
+                        <label>市区町村</label>
                         <input type="text" id="area" name="市区町村" data-formrun-type="locality street-address" data-formrun-required>
                         <div class="error_text" data-formrun-show-if-error="市区町村">入力してください</div>
                     </div>
                 </div>
                 <div class="form-inline-postal">
                     <div>
-                        <label for="detail-address2">番地</label>
+                        <label>番地</label>
                         <input type="text" name="番地" id="banchi"  data-formrun-required>
                         <div class="error_text" data-formrun-show-if-error="番地">入力してください</div>
                     </div>
                 </div>
                 <div class="form-inline-postal">
                     <div>
-                        <label for="detail-address3">建物名・部屋番号</label>
+                        <label>建物名・部屋番号</label>
                         <input type="text" name="建物名・部屋番号">
                     </div>
                 </div>
             </div>  
 
             <!-- 本人または保護者の電話番号 -->
-            <div class="form-group-input">
-                <label id="formLabel">
-                    本人または保護者の電話番号
-                    <span class="required-badge">必須</span>
-                </label>
-                <p class="description">ハイフンありで記入してください。</p>
-                <input type="text" id="phone-number" name="本人または保護者の電話番号" data-formrun-type="tel" placeholder="090-0123-4567" data-formrun-required>
-                <div class="error_text" data-formrun-show-if-error="本人または保護者の電話番号">入力してください</div>
+            <div class="form-group">
+                <div class="form-group-input">
+                    <label id="formLabel">
+                        本人または保護者の電話番号
+                        <span class="required-badge">必須</span>
+                    </label>
+                    <p class="description">ハイフンありで記入してください。</p>
+                    <input type="text" id="phone-number" name="本人または保護者の電話番号" data-formrun-type="tel" placeholder="090-0123-4567" data-formrun-required>
+                    <div class="error_text" data-formrun-show-if-error="本人または保護者の電話番号">入力してください</div>
+                </div>
             </div>
 
             <div class="form-group">
@@ -170,24 +177,25 @@
 
                 <div class="form-inline-name">
                     <div>
-                        <label for="sei">学校コード</label>
-                        <input name="学校コード" id="schoolCode" type="text" readonly data-formrun-required>
+                        <label>学校コード</label>
+                        <input name="学校コード" id="schoolCode" type="text" data-formrun-required readonly>
+                        <div class="error_text" data-formrun-show-if-error="学校コード">入力してください</div>
                     </div>
                     <div>
-                        <label for="mei">学校名</label>
-                        <input name="学校名" id="schoolName" type="text" readonly data-formrun-required>
+                        <label>学校名</label>
+                        <input name="学校名" id="schoolName" type="text" data-formrun-required readonly>
+                        <div class="error_text" data-formrun-show-if-error="学校名">入力してください</div>
                     </div>
                 </div>
 
-                <!-- <p class="description">例）「やまだ進太郎高校」→「やまだ」「進太郎」で検索</p> -->
+                <p class="description">例）「やまだ進太郎高校」→「やまだ」「進太郎」で検索</p>
 
-                <div class="kensaku-input">
-                    <div class="form-inline-name">
-                        <div>
-                            <input type="text" id="searchWord" name="学校キーワード検索" placeholder="「やまだ進太郎高校」→「やまだ」「進太郎」で検索" />
-                        </div>
-                        <button id="kensaku" type="button">検索</button>
+                <div class="form-inline-kensaku">
+                    <div>
+                        <input type="text" id="searchWord" name="学校キーワード検索" />
+                        <!-- placeholder="「やまだ進太郎高校」→「やまだ」「進太郎」で検索" -->
                     </div>
+                    <button id="kensaku" type="button">検索</button>
                 </div>
 
                 <ul id="suggestionList" style="border: 0.5px solid #ccc; max-height: 210px; overflow-y: auto; padding: 0;"></ul>
@@ -217,7 +225,7 @@
                 </label>
                 <div class="checkbox-wrapper">
                     <input type="checkbox" id="gender" value="はい" name="あなたは女性ですか？" data-formrun-required>
-                    <label for="あなたは女性ですか？">はい</label>
+                    <label>はい</label>
                 </div>
                 <div class="error_text" data-formrun-show-if-error="あなたは女性ですか？">入力してください</div>
             </div>
@@ -229,8 +237,14 @@
                     <span class="required-badge">必須</span>
                 </label>
                 <p class="description">100文字程度、上限200文字</p>
-                <textarea class="form-control" id="text1" name="STEM（理系）分野に興味を持ったきっかけや、進学して学んでみたいことや将来つきたい仕事のイメージについて、もしあればお聞かせください。まだ進路が決まっていない場合は、現在考えていることや興味のあることを教えてください。" data-formrun-type="text" data-formrun-chars-max="200" data-formrun-required></textarea>
+
+                <textarea class="form-control" id="text1" 
+                name="STEM（理系）分野に興味を持ったきっかけ" data-formrun-type="text" 
+                data-formrun-chars-max="200" 
+                data-formrun-required></textarea>
+
                 <p class="description">現在の文字数：<span class="charCount" data-for="text1">0</span></p>
+
                 <div class="error_text" data-formrun-show-if-error="STEM（理系）分野に興味を持ったきっかけ">200文字以内で入力してください</div>
             </div>
 
@@ -240,7 +254,7 @@
                     あなたが最も興味のある分野を1つお選びください。（あくまで現時点で関心を持っているものをお選び頂く形であり、将来変更になっても選考や給付への影響はありません。）
                     <span class="required-badge">必須</span>
                 </label>
-                <select name="あなたが最も興味のある分野を1つお選びください。（あくまで現時点で関心を持っているものをお選び頂く形であり、将来変更になっても選考や給付への影響はありません。）" id="interesting" data-formrun-required>
+                <select name="最も興味のある分野" id="interesting" data-formrun-required>
                     <option value="">選択してください</option>
                     <option value="まだ決まっていない/検討中である">まだ決まっていない/検討中である</option>
                     <option value="素材、物質などの研究開発に関わる、化学分野">素材、物質などの研究開発に関わる、化学分野</option>
@@ -284,7 +298,7 @@
                     現在、あなた自身の文理選択について、どう考えていますか？
                     <span class="required-badge">必須</span>
                 </label>
-                <select id="bunnri" type="text" name="現在、あなた自身の文理選択について、どう考えていますか？" data-formrun-required>
+                <select id="bunnri" type="text" name="文理選択" data-formrun-required>
                     <option value="">選択してください</option>
                     <option value="わからない・まだ決めていない（迷っている）">わからない・まだ決めていない（迷っている）</option>
                     <option value="理系">理系</option>
@@ -293,7 +307,7 @@
                     <option value="どちらかといえば文系">どちらかといえば文系</option>
                     <option value="文系">文系</option>
                 </select>
-                <div class="error_text" data-formrun-show-if-error="進路志向">入力してください</div>
+                <div class="error_text" data-formrun-show-if-error="文理選択">入力してください</div>
             </div>
 
             <div class="form-group" id="checkbox-container-kikkake">
@@ -311,8 +325,8 @@
                     <span class="required-badge">必須</span>
                 </label>
                 <div class="checkbox-wrapper">
-                    <input type="checkbox" id="consent" name="今回のご応募にあたって、保護者の同意を得ていますか。" value="保護者の同意" data-formrun-required>
-                    <label for="kyufu">はい</label>
+                    <input type="checkbox" id="consent" name="保護者の同意" value="はい" data-formrun-required>
+                    <label>はい</label>
                 </div>
                 <div class="error_text" data-formrun-show-if-error="保護者の同意">入力してください</div>
             </div>
@@ -324,8 +338,8 @@
                     <span class="required-badge">必須</span>
                 </label>
                 <div class="checkbox-wrapper">
-                    <input type="checkbox" id="scholarship" name="過去に山田進太郎D&I財団の奨学金、奨学助成金の給付は受けていないですか？" value="奨学助成金の給付の有無" data-formrun-required>
-                    <label for="kyufu">はい</label>
+                    <input type="checkbox" id="scholarship" name="奨学助成金の給付の有無" value="奨学助成金の給付の有無" data-formrun-required>
+                    <label>はい</label>
                 </div>
                 <div class="error_text" data-formrun-show-if-error="奨学助成金の給付の有無">入力してください</div>
             </div>
@@ -336,7 +350,7 @@
                     山田進太郎D&I財団がお送りする各種無料メルマガ（STEM分野に興味がある女子向けイベント情報等）の購読を希望しますか？
                     <span class="required-badge">必須</span>
                 </label>
-                <select name="山田進太郎D&I財団がお送りする各種無料メルマガ（STEM分野に興味がある女子向けイベント情報等）の購読を希望しますか？" id="magazine" data-formrun-required>
+                <select name="メルマガ意向" id="magazine" data-formrun-required>
                     <option value="">選択してください</option>
                     <option value="はい">はい</option>
                     <option value="いいえ">いいえ</option>
@@ -354,7 +368,7 @@
                 <p class="description">個人情報の取扱については<a href="https://www.shinfdn.org/privacy" target="_blank">こちら</a>をご確認ください。</p>
                 <div class="checkbox-wrapper">
                     <input type="checkbox" id="agree" name="個人情報利用同意" data-formrun-required>
-                    <label for="agree">利用規約に同意する</label>
+                    <label>利用規約に同意する</label>
                 </div>
                 <div class="error_text" data-formrun-show-if-error="個人情報利用同意">入力してください</div>
             </div>

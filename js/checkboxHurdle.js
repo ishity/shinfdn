@@ -1,6 +1,6 @@
 // checkboxHurdle.js
 
-export function setupHurdleCheckboxes(containerId, errorId, inputName = "高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。") {
+export function setupHurdleCheckboxes(containerId, errorId, inputName = "ハードル") {
     const container = document.getElementById(containerId);
     const errorElement = document.getElementById(errorId);
 
@@ -85,16 +85,17 @@ export function setupHurdleCheckboxes(containerId, errorId, inputName = "高校�
     });
 }
 
-export function validateHurdleCheckboxes(errorId, inputName = "高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。") {
-    const checkboxes = document.querySelectorAll(`input[name="${inputName}"]`);
-    const errorElement = document.getElementById(errorId);
+// checkboxHurdle.js
+export function validateHurdleCheckboxes(errorElementId) {
+    const checkboxes = document.querySelectorAll('[name="hurdle[]"]');
+    const isChecked = Array.from(checkboxes).some(cb => cb.checked);
 
-    const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
-    if (!anyChecked) {
-        if (errorElement) errorElement.style.display = "block";
-        return false;
+    const errorEl = document.getElementById(errorElementId);
+    if (!isChecked) {
+        if (errorEl) errorEl.style.display = "block";
+        return checkboxes[0];  // 最初のチェックボックスを返す
     } else {
-        if (errorElement) errorElement.style.display = "none";
-        return true;
+        if (errorEl) errorEl.style.display = "none";
+        return null;
     }
 }

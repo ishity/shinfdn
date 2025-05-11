@@ -15,24 +15,39 @@ export function validateRequiredFields(event) {
         const isEmpty = !field.value || (field.type === "checkbox" && !field.checked);
         if (isEmpty) {
             if (!firstErrorElement) firstErrorElement = field;
+            console.log(field);
             field.classList.add("error-highlight");
 
             const name = field.getAttribute("name");
+            console.log(name);
             const errorEl = document.querySelector(`[data-formrun-show-if-error="${name}"]`);
             if (errorEl) errorEl.style.display = "block";
             isValid = false;
         }
     });
 
-    if (!validateHurdleCheckboxes("checkbox-error-hurdle")) {
+    const hurdleError = validateHurdleCheckboxes("checkbox-error-hurdle");
+    const kikkakeError = validateKikkakeCheckboxes("checkbox-error-kikkake");
+
+    if (hurdleError) {
         isValid = false;
+        if (!firstErrorElement) firstErrorElement = hurdleError;
     }
 
-    if (!validateKikkakeCheckboxes("checkbox-error-kikkake")) {
+    if (kikkakeError) {
         isValid = false;
+        if (!firstErrorElement) firstErrorElement = kikkakeError;
     }
 
     if (isValid) {
-        event.target.closest("form").submit();  // バリデーションOKなら送信
+        event.target.closest("form").submit();
+    } else if (firstErrorElement) {
+        // firstErrorElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        firstErrorElement.closest(".form-group")?.scrollIntoView({ 
+            behavior: "smooth", 
+            block: "center" 
+        });
+        firstErrorElement.focus();
     }
 }
+

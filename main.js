@@ -42,9 +42,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 //////////////////
 // setup the error check
-document.querySelector("form").addEventListener("submit", validateRequiredFields);
+// document.querySelector("form").addEventListener("submit", validateRequiredFields);
 
-// document.getElementById("formSubmit").addEventListener("click", (e) => {
-//     validateRequiredFields(e);
-// });
+document.getElementById("formSubmit").addEventListener("click", (e) => {
+    validateRequiredFields(e);
+});
 

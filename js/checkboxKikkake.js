@@ -1,6 +1,6 @@
 // checkboxKikkake.js
 
-export function setupKikkakeCheckboxes(containerId, errorId, inputName = "あなたが当財団を知ったきっかけを教えてください（複数回答可）") {
+export function setupKikkakeCheckboxes(containerId, errorId, inputName = "当財団を知ったきっかけ") {
     const container = document.getElementById(containerId);
     const errorElement = document.getElementById(errorId);
 
@@ -52,16 +52,17 @@ export function setupKikkakeCheckboxes(containerId, errorId, inputName = "あな
 }
 
 
-export function validateKikkakeCheckboxes(errorId, inputName = "あなたが当財団を知ったきっかけを教えてください（複数回答可）") {
-    const checkboxes = document.querySelectorAll(`input[name="${inputName}"]`);
-    const errorElement = document.getElementById(errorId);
+export function validateKikkakeCheckboxes(errorElementId) {
+    const checkboxes = document.querySelectorAll('[name="kikkake[]"]');
+    const isChecked = Array.from(checkboxes).some(cb => cb.checked);
 
-    const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
-    if (!anyChecked) {
-        if (errorElement) errorElement.style.display = "block";
-        return false;
+    const errorEl = document.getElementById(errorElementId);
+    if (!isChecked) {
+        if (errorEl) errorEl.style.display = "block";
+        return checkboxes[0];
     } else {
-        if (errorElement) errorElement.style.display = "none";
-        return true;
+        if (errorEl) errorEl.style.display = "none";
+        return null;
     }
 }
+
