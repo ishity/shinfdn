@@ -11,7 +11,7 @@ const searchWord = document.getElementById('searchWord'); // inputの中身
 const kensakuButton = document.getElementById('kensaku'); // 検索ボタン
 
 // 初期状態
-suggestionList.setAttribute('data-placeholder', '学校名を検索してください。');
+suggestionList.setAttribute('data-placeholder', '検索結果がここに表示されます。');
 
 // fetch 成功後にイベントリスナーを追加
 fetch("data/schools2.json")
@@ -33,10 +33,10 @@ function onSchoolTypeChange() {
 
     if (keyword) {
         suggestionList.innerHTML = '';
-        suggestionList.setAttribute('data-placeholder', '検索結果');
+        suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
         showSuggestions(keyword);
     } else {
-        suggestionList.setAttribute('data-placeholder', '検索結果');
+        suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
     }
 }
 
@@ -48,10 +48,10 @@ function onPrefChange() {
 
     if (keyword) {
         suggestionList.innerHTML = '';
-        suggestionList.setAttribute('data-placeholder', '検索結果');
+        suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
         showSuggestions(keyword);
     } else {
-        suggestionList.setAttribute('data-placeholder', '検索結果');
+        suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
     }
 }
 
@@ -62,22 +62,8 @@ function onPrefSearchedPushed() {
         suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
         return;
     }else{
-        suggestionList.setAttribute('data-placeholder', '検索結果');
+        suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
         showSuggestions(keyword);
-    }
-}
-
-function updatePlaceholder() {
-    suggestionList.innerHTML = '';
-
-    if (!selectedSchoolType && !selectedPrefCode) {
-        suggestionList.setAttribute('data-placeholder', '学校の種類と都道府県を選択してください。');
-    } else if (!selectedSchoolType) {
-        suggestionList.setAttribute('data-placeholder', '学校の種類を選択してください。');
-    } else if (!selectedPrefCode) {
-        suggestionList.setAttribute('data-placeholder', '都道府県を選択してください。');
-    } else {
-        suggestionList.setAttribute('data-placeholder', '検索結果');
     }
 }
 
@@ -121,7 +107,7 @@ function showSuggestions(keyword) {
             codeInput.value = 'D999999999999';
             nameInput.value = '自分の高校が見つからない';
             suggestionList.innerHTML = '';
-            suggestionList.setAttribute('data-placeholder', '検索結果');
+            suggestionList.setAttribute('data-placeholder', '学校名を入力してください。');
         });
         suggestionList.appendChild(li);
     } else {
@@ -135,7 +121,7 @@ function showSuggestions(keyword) {
                 codeInput.value = school.code;
                 nameInput.value = school.name;
                 suggestionList.innerHTML = '';
-                suggestionList.setAttribute('data-placeholder', '所属する学校名を選択してください。');
+                suggestionList.setAttribute('data-placeholder', '検索結果がここに表示されます。');
             });
             suggestionList.appendChild(li);
         });

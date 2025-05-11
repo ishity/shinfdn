@@ -1,50 +1,38 @@
 // errorHandler.js
-
-export function validateSelection(name = "ハードル[]", errorMessageId = "error-message") {
-    const checkboxes = document.querySelectorAll(`input[name="${name}"]`);
-    const errorMessage = document.getElementById(errorMessageId);
-    const isAnyChecked = Array.from(checkboxes).some(cb => cb.checked);
-
-    if (!isAnyChecked) {
-        errorMessage.style.display = 'block';
-    } else {
-        errorMessage.style.display = 'none';
-        alert("ありがとうございます。選択が確認されました。");
-    }
-}
+import { validateHurdleCheckboxes } from './checkboxHurdle.js';
+import { validateKikkakeCheckboxes } from './checkboxKikkake.js';
 
 export function validateRequiredFields(event) {
-    const requiredFields = document.querySelectorAll('[data-formrun-required]');
-    let firstInvalidField = null;
+    event.preventDefault();
+
+    let isValid = true;
+    document.querySelectorAll(".error-highlight").forEach(el => el.classList.remove("error-highlight"));
+
+    const requiredFields = document.querySelectorAll("[data-formrun-required]");
+    let firstErrorElement = null;
 
     requiredFields.forEach(field => {
-        const container = field.closest('.form-group, .form-group-input') || field.parentElement;
+        const isEmpty = !field.value || (field.type === "checkbox" && !field.checked);
+        if (isEmpty) {
+            if (!firstErrorElement) firstErrorElement = field;
+            field.classList.add("error-highlight");
 
-        // スタイルリセット
-        field.classList.remove('input-error');
-        const existingError = container.querySelector('.validation-error');
-        if (existingError) existingError.remove();
-
-        if (!field.value.trim()) {
-            if (!firstInvalidField) firstInvalidField = field;
-
-            field.classList.add('input-error');
-
-            const errorMsg = document.createElement('div');
-            errorMsg.className = 'validation-error';
-            errorMsg.textContent = 'この項目は必須です';
-            errorMsg.style.color = '#d00';
-            errorMsg.style.fontSize = '0.9em';
-            errorMsg.style.marginTop = '4px';
-            container.appendChild(errorMsg);
+            const name = field.getAttribute("name");
+            const errorEl = document.querySelector(`[data-formrun-show-if-error="${name}"]`);
+            if (errorEl) errorEl.style.display = "block";
+            isValid = false;
         }
     });
 
-    if (firstInvalidField) {
-        event.preventDefault();
-        firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        firstInvalidField.focus();
+    if (!validateHurdleCheckboxes("checkbox-error-hurdle")) {
+        isValid = false;
+    }
+
+    if (!validateKikkakeCheckboxes("checkbox-error-kikkake")) {
+        isValid = false;
+    }
+
+    if (isValid) {
+        event.target.closest("form").submit();  // バリデーションOKなら送信
     }
 }
-
-

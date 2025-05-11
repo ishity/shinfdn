@@ -49,17 +49,19 @@ export function setupKikkakeCheckboxes(containerId, errorId, inputName = "あな
 
     // その他を最後に追加
     container.appendChild(createCheckbox(otherItem, items.length));
+}
 
-    // フォーム送信時のバリデーション
-    const form = document.querySelector("form");
-    form.addEventListener("submit", function (e) {
-        const checkboxes = document.querySelectorAll(`input[name="${inputName}"]`);
-        const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
-        if (!anyChecked) {
-            e.preventDefault();
-            errorElement.style.display = "block";
-        } else {
-            errorElement.style.display = "none";
-        }
-    });
+
+export function validateKikkakeCheckboxes(errorId, inputName = "あなたが当財団を知ったきっかけを教えてください（複数回答可）") {
+    const checkboxes = document.querySelectorAll(`input[name="${inputName}"]`);
+    const errorElement = document.getElementById(errorId);
+
+    const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+    if (!anyChecked) {
+        if (errorElement) errorElement.style.display = "block";
+        return false;
+    } else {
+        if (errorElement) errorElement.style.display = "none";
+        return true;
+    }
 }

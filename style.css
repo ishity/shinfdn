@@ -68,6 +68,7 @@ h3 {
     margin-left: 1px;
     vertical-align: middle;
 }
+
 /* ==========Base Design End========== */
 
 
@@ -105,6 +106,22 @@ label#formLabel {
     display: block;
     margin-bottom: 0.5rem;
 }
+
+/* 赤枠スタイル */
+.error-highlight {
+    border: 2px solid red !important;
+    background-color: #fff0f0;
+}
+
+/* エラーテキストがデフォルトで非表示の場合に対応 */
+.error_text {
+    display: none;
+    color: red;
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+
+
 /* ==========Detail Design Setting End========== */
 
 
@@ -115,6 +132,11 @@ label#formLabel {
 }
 
 .form-group-school-code {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group-school-code-sub {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -154,6 +176,14 @@ label#formLabel {
     border-radius: 4px;
     font-size: 1rem;
     box-sizing: border-box;
+}
+
+.form-inline-name input::placeholder {
+    font-size: 0.8rem;
+}
+
+.kensaku-input{
+    margin-top: 2rem;
 }
 
 /* 共通：フォームのインライングループ */
@@ -301,6 +331,8 @@ button#kensaku, input[type="submit"] {
 #suggestionList li:hover {
     background-color: #f0faf7;
     color: #009C7A;
+    /* background-color: #ffffff;
+    color: #a1a1a1; */
 }
 
 #suggestionList li:last-child {
@@ -314,6 +346,8 @@ button#kensaku, input[type="submit"] {
     padding: 0.7rem;
     background-color: #f0faf7;
     color: #009C7A;
+    /* background-color: #ffffff;
+    color: #a1a1a1; */
     font-size: 0.95rem;
     pointer-events: none;
 }

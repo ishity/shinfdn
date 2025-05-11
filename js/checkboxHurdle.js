@@ -83,15 +83,18 @@ export function setupHurdleCheckboxes(containerId, errorId, inputName = "高校�
             }
         });
     });
+}
 
-    // フォーム送信時のバリデーション
-    form.addEventListener("submit", function (e) {
-        const anyChecked = checkboxes.some(cb => cb.checked);
-        if (!anyChecked) {
-            e.preventDefault();
-            errorElement.style.display = "block";
-        } else {
-            errorElement.style.display = "none";
-        }
-    });
+export function validateHurdleCheckboxes(errorId, inputName = "高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。") {
+    const checkboxes = document.querySelectorAll(`input[name="${inputName}"]`);
+    const errorElement = document.getElementById(errorId);
+
+    const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+    if (!anyChecked) {
+        if (errorElement) errorElement.style.display = "block";
+        return false;
+    } else {
+        if (errorElement) errorElement.style.display = "none";
+        return true;
+    }
 }

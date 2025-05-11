@@ -3,7 +3,7 @@ import { setupCharCounter } from './js/charCount.js';
 import { setupHurdleCheckboxes } from './js/checkboxHurdle.js';
 import { setupKikkakeCheckboxes } from './js/checkboxKikkake.js';
 import { autofillFromURL } from './js/setParams.js';
-import { validateSelection } from './js/errorHandler.js';
+import { validateRequiredFields } from './js/errorHandler.js';
 
 //////////////////
 // fetch prefecture from the data
@@ -38,3 +38,13 @@ window.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('DOMContentLoaded', () => {
     setupKikkakeCheckboxes('checkbox-container-kikkake', 'checkbox-error-kikkake');
 });
+
+
+//////////////////
+// setup the error check
+document.querySelector("form").addEventListener("submit", validateRequiredFields);
+
+// document.getElementById("formSubmit").addEventListener("click", (e) => {
+//     validateRequiredFields(e);
+// });
+
