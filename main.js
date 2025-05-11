@@ -3,7 +3,7 @@ import { setupCharCounter } from './js/charCount.js';
 import { setupHurdleCheckboxes } from './js/checkboxHurdle.js';
 import { setupKikkakeCheckboxes } from './js/checkboxKikkake.js';
 import { autofillFromURL } from './js/setParams.js';
-import { setupCheckboxLimit, validateSelection } from './js/checkboxHandler.js';
+import { validateSelection } from './js/errorHandler.js';
 
 //////////////////
 // fetch prefecture from the data
