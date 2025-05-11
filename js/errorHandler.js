@@ -42,7 +42,6 @@ export function validateRequiredFields(event) {
     if (isValid) {
         event.target.closest("form").submit();
     } else if (firstErrorElement) {
-        // firstErrorElement.scrollIntoView({ behavior: "smooth", block: "center" });
         firstErrorElement.closest(".form-group")?.scrollIntoView({ 
             behavior: "smooth", 
             block: "center" 
