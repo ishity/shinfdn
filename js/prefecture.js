@@ -20,7 +20,7 @@ export function populatePrefectures(data) {
     // プレースホルダーオプションを最初に追加
     const placeholderOption = document.createElement("option");
     placeholderOption.value = "";
-    placeholderOption.textContent = "都道府県を選択";
+    placeholderOption.textContent = "（任意）都道府県を選択";
     placeholderOption.disabled = true;
     placeholderOption.selected = true;
     select.appendChild(placeholderOption);
