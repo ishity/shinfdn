@@ -191,11 +191,30 @@ label#formLabel {
     box-sizing: border-box;
 }
 
+.form-inline-school-name-code {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.form-inline-school-name-code > div {
+    flex: 1;
+}
+
+.form-inline-school-name-code input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+}
+
 
 .form-inline-kensaku {
     display: flex;
     gap: 1rem;
-    /* margin-top: 2rem; */
 }
 
 .form-inline-kensaku > div {
