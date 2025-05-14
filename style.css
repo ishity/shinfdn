@@ -53,7 +53,7 @@ h3 {
     background-color: #ff0000; /* 赤色 */
     color: #fff;    
     padding: 3px 5px;
-    font-size: 11px;
+    font-size: 0.7rem;
     border-radius: 4px;
     margin-left: 1px;
     vertical-align: middle;
@@ -63,13 +63,63 @@ h3 {
     background-color: #2a3957; /* 赤色 */
     color: #fff;  
     padding: 3px 5px;
-    font-size: 11px;
+    font-size: 0.7rem;
     border-radius: 4px;
     margin-left: 1px;
     vertical-align: middle;
 }
 
 /* ==========Base Design End========== */
+
+/* ==========Smart phone========== */
+@media screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .topTitle h1, .topTitle h2, .topTitle h3 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .form-inline-name,
+    .form-inline-postal,
+    .form-inline-school-name-code,
+    .form-inline-kensaku {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-inline-name > div,
+    .form-inline-postal > div,
+    .form-inline-school-name-code > div {
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .form-group,
+    .form-group-email,
+    .form-group-input {
+        padding: 10px 0;
+    }
+
+    button#kensaku {
+        width: 100%;
+    }
+
+    ul#suggestionList {
+        max-height: 150px;
+    }
+    }
+/* ==========Smart phone End========== */
 
 
 /* ==========Detail Design Setting========== */
@@ -135,6 +185,15 @@ label#formLabel {
 .form-group-input {
     max-width: 525px;
     min-width: 150px; 
+}
+
+.form-group-email {
+    max-width: 525px;
+    min-width: 150px; 
+}
+
+.form-group-email > input {
+    background-color: #f0f0f0;
 }
 
 .form-group-school-code {

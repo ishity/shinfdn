@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>テスト：STEM(理系)女子奨学助成金申し込み</title>
     <script src="https://sdk.form.run/js/v2/formrun.js"></script>
     <link rel="stylesheet" href="./style.css">
@@ -13,11 +14,11 @@
 
         <h2>高等学校1、2年生(高専含む)対象</h2>
 
-        <h3>2025年4月時点で高校新2、3年生<br>または高専新2、3年生になる方</h3>
+        <h3>2026年4月時点で高校新2、3年生<br>または高専新2、3年生になる方</h3>
 
         <p class="attention">記載内容が事実と異なっていた場合、給付取り消しとなることがあります。虚偽の記載はしないようにお願いします。</p>
         
-        <p class="deadline">回答締め切り 2025-05-20 23:45</p>
+        <p class="deadline">回回答締め切り 2025-09-30 23:45</p>
 
     </div>
 
@@ -69,13 +70,13 @@
         
             <!-- メールアドレス -->
             <div class="form-group">
-                <div class="form-group-input">
+                <div class="form-group-email">
                     <label id="formLabel">
                         登録済みメールアドレス（変更不可）
                         <span class="required-badge">必須</span>
                     </label>
-                    <p class="description">本申し込みフォームのご案内をお送りしましたこちらのメールアドレスに、申し込み後の完了メールおよび、2025年2月中旬頃に選考結果が届きます。申し込み完了メールの受信を必ずご確認ください。1つのメールアドレスにつき1人のみ応募いただけます。姉妹などで応募頂く場合は別々のメールアドレスでのご登録をお願いします。</p>
-                    <input id="email" name="メールアドレス" type="text" placeholder="example@mail.com" data-formrun-type="email" data-formrun-required>
+                    <p class="description">本申し込みフォームのURLをお送りしたこちらのメールアドレスに、申し込み後の完了メールおよび、2025年11月頃に選考結果が届きます。申し込み完了メールの受信を必ずご確認ください。<br>姉妹などで応募頂く場合は、別々のメールアドレスでのご登録をお願いします。1つのメールアドレスにつき1人のみ応募いただけます。</p>
+                    <input id="email" name="メールアドレス" type="text" placeholder="example@mail.com" data-formrun-type="email" data-formrun-required readonly>
                     <div class="error_text" data-formrun-show-if-error="メールアドレス">有効なメールアドレスを入力してください</div>
                 </div>
             </div>
@@ -106,7 +107,7 @@
                         生年月日
                         <span class="required-badge">必須</span>
                     </label>
-                    <input type="date" id="birth" name="生年月日" data-formrun-required value="2009-01-01">
+                    <input type="date" id="birth" name="生年月日" data-formrun-required value="2009-04-01">
                     <div class="error_text" data-formrun-show-if-error="生年月日">入力してください</div>
                 </div>
             </div>
@@ -159,7 +160,7 @@
                         本人または保護者の電話番号
                         <span class="required-badge">必須</span>
                     </label>
-                    <p class="description">ハイフンありで記入してください。</p>
+                    <p class="description">給付が内定された方へ、財団から確認のご連絡を差し上げることがありますので、必ず連絡がつく電話番号をご記入下さい。記入の際はハイフンい入れてください。</p>
                     <input type="text" id="phone-number" name="本人または保護者の電話番号" data-formrun-type="tel" placeholder="090-0123-4567" data-formrun-required>
                     <div class="error_text" data-formrun-show-if-error="本人または保護者の電話番号">入力してください</div>
                 </div>
@@ -167,7 +168,7 @@
 
             <div class="form-group">
                 <label id="formLabel">
-                    学校コードと学校名
+                    学校名を検索
                     <span class="required-badge">必須</span>
                 </label>
 
@@ -177,14 +178,14 @@
 
                 <div class="form-inline-school-name-code">
                     <div>
-                        <label>学校コード</label>
-                        <input name="学校コード" id="schoolCode" type="text" data-formrun-required readonly placeholder="検索すると自動で入力されます">
-                        <div class="error_text" data-formrun-show-if-error="学校コード">入力してください</div>
-                    </div>
-                    <div>
                         <label>学校名</label>
                         <input name="学校名" id="schoolName" type="text" data-formrun-required readonly placeholder="検索すると自動で入力されます">
                         <div class="error_text" data-formrun-show-if-error="学校名">入力してください</div>
+                    </div>
+                    <div>
+                        <label>学校コード</label>
+                        <input name="学校コード" id="schoolCode" type="text" data-formrun-required readonly placeholder="検索すると自動で入力されます">
+                        <div class="error_text" data-formrun-show-if-error="学校コード">入力してください</div>
                     </div>
                 </div>
 
@@ -222,6 +223,7 @@
                     あなたは女性ですか？
                     <span class="required-badge">必須</span>
                 </label>
+                <p class="description">性自認もしくは戸籍上の性別が女性の方が対象です。</p>
                 <div class="checkbox-wrapper">
                     <input type="checkbox" id="gender" value="はい" name="あなたは女性ですか？" data-formrun-required>
                     <label>はい</label>
@@ -275,7 +277,7 @@
 
             <div class="form-group" id="checkbox-container-hurdle">
                 <label id="formLabel">
-                    高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている／いたことを最大3つまでお選びください。ハードルがない場合は、「特にない」をお選びください。
+                    高校・高専での学びやその先の理系での進路/キャリアを描いていく上でハードルになっている、またはハードルになっていたことを最大3つまでお選びください。ハードルが特にない場合は、「上記の中に当てはまるものはない」をお選びください。
                     <span class="required-badge">必須</span>
                 </label>
                 <p id="checkbox-error-hurdle" style="color: red; display: none;">1つ以上選択してください。</p>
@@ -317,6 +319,15 @@
                 <p id="checkbox-error-kikkake" style="color: red; display: none;">1つ以上選択してください。</p>
             </div>
 
+            <!-- ハードル  -->
+            <div class="form-group">
+                <label id="formLabel">
+                    上記で「その他」を選んだ方は、どのように当財団を知ったのか教えてください。
+                    <span class="non-required-badge">任意</span>
+                </label>
+                <textarea class="form-control" id="text3" name="上記で「その他」を選んだ方は、どのように当財団を知ったのか教えてください。" data-formrun-type="text"></textarea>
+            </div>
+
             <!-- 今回のご応募にあたって、保護者の同意を得ていますか。 -->
             <div class="form-group">
                 <label id="formLabel">
@@ -336,6 +347,7 @@
                     過去に山田進太郎D&I財団の奨学金、奨学助成金の給付は受けていないですか？
                     <span class="required-badge">必須</span>
                 </label>
+                <p class="description">過去に、本財団の奨学金または奨学助成金を受け取ったことのある方は給付対象外となります。</p>
                 <div class="checkbox-wrapper">
                     <input type="checkbox" id="scholarship" name="奨学助成金の給付の有無" value="奨学助成金の給付の有無" data-formrun-required>
                     <label>はい</label>
@@ -349,7 +361,7 @@
                     山田進太郎D&I財団がお送りする各種無料メルマガ（STEM分野に興味がある女子向けイベント情報等）の購読を希望しますか？
                     <span class="required-badge">必須</span>
                 </label>
-                <select name="メルマガ意向" id="magazine" data-formrun-required>
+                <select name="メルマガ意向" id="magazine" data-formrun-required value="はい">
                     <option value="">選択してください</option>
                     <option value="はい">はい</option>
                     <option value="いいえ">いいえ</option>
