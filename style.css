@@ -182,18 +182,33 @@ label#formLabel {
 }
 
 /* テキストインプットのデザイン */
-.form-group-input {
-    max-width: 525px;
+.form-group-input > div{
+    max-width: 550px;
     min-width: 150px; 
 }
 
-.form-group-email {
-    max-width: 525px;
+.form-group-input > input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group-email > div{
+    max-width: 550px;
     min-width: 150px; 
 }
 
 .form-group-email > input {
     background-color: #f0f0f0;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
 .form-group-school-code {
@@ -329,12 +344,13 @@ textarea {
     width: 100%;
     max-width: 525px;
     min-height: 100px;
-    padding: 0.6rem 0.8rem;
+    padding: 0.5rem 0.75rem;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 6px;
     transition: border-color 0.2s ease;
     font-family: 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
 }
 
 /* 選択リストや補助テキストのデザイン */
