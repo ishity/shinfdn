@@ -5,21 +5,23 @@ export function setupKikkakeCheckboxes(containerId, errorId, inputName = "当財
     const errorElement = document.getElementById(errorId);
 
     const items = [
-        "Instagram", "X(旧Twitter)", "LINE", "インターネット検索",
-        "学校のチラシ配布（紙）", "学校のチラシ配布（デジタル）", "学校に貼ってあったポスター等の掲示物",
-        "塾に貼ってあったポスター", "塾からのメールやチラシ", "奨学金情報サイト",
+        "Instagram", "X(旧Twitter)", "LINE", "Youtube", "TikTok", 
+        "インターネット検索","学校のチラシ配布（紙）", "学校のチラシ配布（デジタル）", 
+        "学校に貼ってあったポスター等の掲示物",
+        "塾に貼ってあったポスター", "塾からのメールやチラシ", 
+        "図書館その他公共施設でのポスター等の掲示物", 
+        "D&I財団主催イベント", "奨学金情報サイト",
         "ニュースサイト", "新聞", "テレビ", "保護者の紹介",
-        "先生の紹介", "友人・知人の紹介", "D&I財団主催イベント",
-        "Youtube", "TikTok", "図書館その他公共施設でのポスター等の掲示物"
+        "先生の紹介", "友人・知人の紹介",
     ];
 
     const otherItem = "その他";
 
     // Fisher–Yatesシャッフル
-    for (let i = items.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [items[i], items[j]] = [items[j], items[i]];
-    }
+    // for (let i = items.length - 1; i > 0; i--) {
+    //     const j = Math.floor(Math.random() * (i + 1));
+    //     [items[i], items[j]] = [items[j], items[i]];
+    // }
 
     // チェックボックスを作成
     function createCheckbox(label, index) {
